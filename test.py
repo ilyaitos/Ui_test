@@ -32,6 +32,7 @@ from time import sleep
 elements = ElementsPage(driver)
 url = "http://localhost:8080/ui/#default_personal/"
 
+
 def test_1_login():
     driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_LOGIN_FIELD).send_keys('default')
     driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_PASSWORD_FIELD).send_keys('1q2w3e')
