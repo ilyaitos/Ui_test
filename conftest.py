@@ -6,20 +6,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
 
-
-# import logging
-# import sys
-# import pytest
-# from reportportal_client import RPLogger
-
-# @pytest.fixture(scope="session")
-# def rp_logger():
-#     logger = logging.getLogger(__name__)
-#     logger.setLevel(logging.DEBUG)
-#     logging.setLoggerClass(RPLogger)
-#     return logger
-
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 fh = logging.FileHandler('logger_test.log', mode='w')
@@ -48,9 +34,3 @@ def login():
 @pytest.fixture(autouse=True)
 def start_page():
     driver.get('http://localhost:8080/ui/#default_personal/dashboard')
-
-
-
-
-
-
