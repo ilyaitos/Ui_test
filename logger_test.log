@@ -1,76 +1,11 @@
-WARNING - 2022-10-28 19:47:14,550 - conftest.py - login - THE TEST IS STARTED
-INFO - 2022-10-28 19:47:23,677 - elements_page.py - click_button_login - Click login button
-INFO - 2022-10-28 19:47:23,769 - elements_page.py - click_button_login - Login button is clicked
-INFO - 2022-10-28 19:47:25,396 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:25,735 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:26,162 - elements_page.py - click_button_launches - Click launches button
-INFO - 2022-10-28 19:47:26,609 - elements_page.py - click_button_launches - Launches button is clicked
-INFO - 2022-10-28 19:47:26,824 - elements_page.py - click_button_filters - Click filters button
-INFO - 2022-10-28 19:47:27,001 - elements_page.py - click_button_filters - Filters button is clicked
-INFO - 2022-10-28 19:47:27,176 - elements_page.py - click_button_debug - Click debug button
-INFO - 2022-10-28 19:47:27,376 - elements_page.py - click_button_debug - Debug button is clicked
-INFO - 2022-10-28 19:47:27,561 - elements_page.py - click_button_project_members - Click project members button
-INFO - 2022-10-28 19:47:27,679 - elements_page.py - click_button_project_members - Project members button is clicked
-INFO - 2022-10-28 19:47:27,812 - elements_page.py - click_button_project_settings - Click project settings button
-INFO - 2022-10-28 19:47:27,946 - elements_page.py - click_button_project_settings - Project settings button is clicked
-INFO - 2022-10-28 19:47:28,115 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:28,245 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:28,245 - elements_page.py - click_button_add_new_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:28,343 - elements_page.py - click_button_add_new_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:28,343 - elements_page.py - input_name_new_dashboard - Enter name
-INFO - 2022-10-28 19:47:28,466 - elements_page.py - input_name_new_dashboard - Name accepted
-INFO - 2022-10-28 19:47:28,466 - elements_page.py - click_button_add - Click add button
-INFO - 2022-10-28 19:47:28,550 - elements_page.py - click_button_add - Add button is clicked
-INFO - 2022-10-28 19:47:28,550 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:28,734 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:28,735 - elements_page.py - click_button_delete_dashboard - Click delete dashboard button
-INFO - 2022-10-28 19:47:28,832 - elements_page.py - click_button_delete_dashboard - Delete dashboard button is clicked
-INFO - 2022-10-28 19:47:28,832 - elements_page.py - click_button_confirm_delete_dashboard - Confirm delete dashboard
-INFO - 2022-10-28 19:47:28,896 - elements_page.py - click_button_confirm_delete_dashboard - Confirmed dashboard deletion
-INFO - 2022-10-28 19:47:28,896 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:29,248 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:36,768 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:37,136 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:37,136 - elements_page.py - click_button_add_new_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:37,237 - elements_page.py - click_button_add_new_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:37,237 - elements_page.py - input_name_new_dashboard - Enter name
-INFO - 2022-10-28 19:47:37,340 - elements_page.py - input_name_new_dashboard - Name accepted
-INFO - 2022-10-28 19:47:37,341 - elements_page.py - click_button_add - Click add button
-INFO - 2022-10-28 19:47:37,428 - elements_page.py - click_button_add - Add button is clicked
-INFO - 2022-10-28 19:47:37,429 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:37,628 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:37,629 - elements_page.py - click_dashboard_name - Click dashboard name 
-INFO - 2022-10-28 19:47:37,720 - elements_page.py - click_dashboard_name - Dashboard name is clicked
-INFO - 2022-10-28 19:47:37,720 - elements_page.py - click_button_add_new_widget - Click add new widget button
-INFO - 2022-10-28 19:47:37,843 - elements_page.py - click_button_add_new_widget - Add new widget dashboard button is clicked
-INFO - 2022-10-28 19:47:37,844 - elements_page.py - click_button_widget_launch_statistics_chart - Click widget launch statistics chart button
-INFO - 2022-10-28 19:47:37,916 - elements_page.py - click_button_widget_launch_statistics_chart - Widget launch statistics chart button is clicked
-INFO - 2022-10-28 19:47:37,916 - elements_page.py - click_button_widget_type_next_step - Click next step button
-INFO - 2022-10-28 19:47:38,095 - elements_page.py - click_button_widget_type_next_step - Next step button is clicked
-INFO - 2022-10-28 19:47:38,096 - elements_page.py - click_button_configure_widget_filter_sddf - Click widget filter sddf button
-INFO - 2022-10-28 19:47:38,226 - elements_page.py - click_button_configure_widget_filter_sddf - Widget filter sddf button is clicked
-INFO - 2022-10-28 19:47:38,226 - elements_page.py - click_button_configure_widget_type_next_step - Click next step button
-INFO - 2022-10-28 19:47:38,323 - elements_page.py - click_button_configure_widget_type_next_step - Next step button is clicked
-INFO - 2022-10-28 19:47:38,323 - elements_page.py - click_button_save_add - Click add button
-INFO - 2022-10-28 19:47:38,399 - elements_page.py - click_button_save_add - Add button is clicked
-INFO - 2022-10-28 19:47:38,561 - elements_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-28 19:47:38,669 - elements_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-28 19:47:38,669 - elements_page.py - click_button_delete_dashboard - Click delete dashboard button
-INFO - 2022-10-28 19:47:38,752 - elements_page.py - click_button_delete_dashboard - Delete dashboard button is clicked
-INFO - 2022-10-28 19:47:38,753 - elements_page.py - click_button_confirm_delete_dashboard - Confirm delete dashboard
-INFO - 2022-10-28 19:47:38,829 - elements_page.py - click_button_confirm_delete_dashboard - Confirmed dashboard deletion
-INFO - 2022-10-28 19:47:40,577 - elements_page.py - click_button_default_drop - Click default drop button
-INFO - 2022-10-28 19:47:40,633 - elements_page.py - click_button_default_drop - Default drop button is clicked
-INFO - 2022-10-28 19:47:40,633 - elements_page.py - click_button_profile - Click profile button
-INFO - 2022-10-28 19:47:40,750 - elements_page.py - click_button_profile - Profile button is clicked
-INFO - 2022-10-28 19:47:40,750 - elements_page.py - click_button_editing_nickname - Click editing nickname button
-INFO - 2022-10-28 19:47:40,841 - elements_page.py - click_button_editing_nickname - Editing nickname button is clicked
-INFO - 2022-10-28 19:47:40,842 - elements_page.py - input_user_name - Enter user name
-INFO - 2022-10-28 19:47:40,982 - elements_page.py - input_user_name - User name accepted
-INFO - 2022-10-28 19:47:40,983 - elements_page.py - click_button_submit - Click submit button
-INFO - 2022-10-28 19:47:41,068 - elements_page.py - click_button_submit - Submit button is clicked
-INFO - 2022-10-28 19:47:43,121 - elements_page.py - click_button_default_drop - Click default drop button
-INFO - 2022-10-28 19:47:43,175 - elements_page.py - click_button_default_drop - Default drop button is clicked
-INFO - 2022-10-28 19:47:43,175 - elements_page.py - click_button_logout - Click logout button
-INFO - 2022-10-28 19:47:43,332 - elements_page.py - click_button_logout - Logout button is clicked
-WARNING - 2022-10-28 19:47:45,590 - conftest.py - login - TEST IS OVER
+WARNING - 2022-10-30 23:47:52,297 - conftest.py - login - THE TEST IS STARTED
+INFO - 2022-10-30 23:47:54,536 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-10-30 23:47:55,029 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-10-30 23:47:55,746 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-10-30 23:47:55,979 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-10-30 23:47:55,979 - home_page.py - click_button_default_drop - Click default drop button
+INFO - 2022-10-30 23:47:56,045 - home_page.py - click_button_default_drop - Default drop button is clicked
+INFO - 2022-10-30 23:47:56,046 - home_page.py - click_button_logout - Click logout button
+INFO - 2022-10-30 23:47:56,181 - home_page.py - click_button_logout - Logout button is clicked
+INFO - 2022-10-30 23:47:56,284 - home_page.py - click_button_launches - Click launches button
+WARNING - 2022-10-30 23:48:05,797 - conftest.py - login - TEST IS OVER

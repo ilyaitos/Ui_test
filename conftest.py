@@ -23,7 +23,7 @@ def login():
     driver.implicitly_wait(7)
     driver.maximize_window()
     driver.get(link)
-    driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_LOGIN_FIELD).send_keys('default')
+    driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_LOGIN_FIELD).send_keys('default')#???
     driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_PASSWORD_FIELD).send_keys('1q2w3e')
     driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_BUTTON_TO_COME_IN).click()
     yield
