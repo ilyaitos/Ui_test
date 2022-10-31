@@ -1,6 +1,0 @@
-WARNING - 2022-10-31 21:12:25,084 - conftest.py - login - THE TEST IS STARTED
-INFO - 2022-10-31 21:12:27,190 - home_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-31 21:12:27,632 - home_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-31 21:12:28,300 - home_page.py - click_button_launches - Click launches button
-INFO - 2022-10-31 21:12:28,929 - home_page.py - click_button_launches - Launches button is clicked
-WARNING - 2022-10-31 21:12:31,104 - conftest.py - login - TEST IS OVER

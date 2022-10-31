@@ -1,12 +1,12 @@
 import pytest
 from selenium.webdriver.common.by import By
-from locator import LocatorsRegistrationPage
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
 import os
 from datetime import datetime
+from locator import *
 
 
 logger = logging.getLogger(__name__)
@@ -17,8 +17,8 @@ link = "http://localhost:8080/ui/#login"
 @pytest.hookimpl
 def pytest_runtest_setup(item):
     logging_plugin = item.config.pluginmanager.get_plugin("logging-plugin")
-    timestamp = datetime.strftime(datetime.now(), '%Y-%m-%d--%H-%M-%S')
-    logging_plugin.set_log_path(os.path.join('logger_test', f'{item.name}_{timestamp}.log'))
+    timestamp = datetime.strftime(datetime.now(), '[%Y-%m-%d]__%H-%M-%S')
+    logging_plugin.set_log_path(os.path.join('logger_test', f'{item.name}__{timestamp}.log'))
 
 
 @pytest.fixture(autouse=True, scope="module")
@@ -31,6 +31,8 @@ def login():
     driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_BUTTON_TO_COME_IN).click()
     yield
     driver.quit()
+
+
 
 
 @pytest.fixture(autouse=True)

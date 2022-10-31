@@ -43,5 +43,7 @@ class LocatorsProfile:
 
 
 class LocatorsLaunches:
-    LOCATOR_TEST_EXAMPLE ='(//*[@href="#default_personal/launches/all/98"])[1]'
+    LOCATOR_TEST_EXAMPLE = '(//*[@class="tooltip__tooltip-trigger--3Z4Hc itemInfo__name--27fwI"])[1]'
     LOCATOR_DASHBOARD_STATUS_PASSED = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//*[text()="test.py::test_dashboard_passed"]/../../../../../../..//*[@class="inputDropdown__value--2gB2s statusDropdown__value--2-1wZ"]'
+    LOCATOR_DASHBOARD_STATUS_FAILED = '//*[@class="gridRow__grid-row-wrapper--1dI9K stepGrid__failed--2d38k"]//*[text()="test.py::test_dashboard_failed"]/../../../../../../..//*[@class="inputDropdown__value--2gB2s statusDropdown__value--2-1wZ"]'
+    LOCATOR_DASHBOARD_STATUS_SKIPPED = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//*[text()="test.py::test_dashboard_skipped"]/../../../../../../..//*[@class="inputDropdown__value--2gB2s statusDropdown__value--2-1wZ"]'
