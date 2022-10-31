@@ -1,11 +1,6 @@
-WARNING - 2022-10-30 23:47:52,297 - conftest.py - login - THE TEST IS STARTED
-INFO - 2022-10-30 23:47:54,536 - home_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-30 23:47:55,029 - home_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-30 23:47:55,746 - home_page.py - click_button_dashboard - Click dashboard button
-INFO - 2022-10-30 23:47:55,979 - home_page.py - click_button_dashboard - Dashboard button is clicked
-INFO - 2022-10-30 23:47:55,979 - home_page.py - click_button_default_drop - Click default drop button
-INFO - 2022-10-30 23:47:56,045 - home_page.py - click_button_default_drop - Default drop button is clicked
-INFO - 2022-10-30 23:47:56,046 - home_page.py - click_button_logout - Click logout button
-INFO - 2022-10-30 23:47:56,181 - home_page.py - click_button_logout - Logout button is clicked
-INFO - 2022-10-30 23:47:56,284 - home_page.py - click_button_launches - Click launches button
-WARNING - 2022-10-30 23:48:05,797 - conftest.py - login - TEST IS OVER
+WARNING - 2022-10-31 21:12:25,084 - conftest.py - login - THE TEST IS STARTED
+INFO - 2022-10-31 21:12:27,190 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-10-31 21:12:27,632 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-10-31 21:12:28,300 - home_page.py - click_button_launches - Click launches button
+INFO - 2022-10-31 21:12:28,929 - home_page.py - click_button_launches - Launches button is clicked
+WARNING - 2022-10-31 21:12:31,104 - conftest.py - login - TEST IS OVER

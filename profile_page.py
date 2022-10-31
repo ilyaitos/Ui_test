@@ -20,6 +20,10 @@ class ProfilePage(HomePage):
         input_user_name.send_keys(name)
         logger.info('User name accepted')
 
+    def user_name(self):
+        user_name = self.driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_USER_NAME_ON_THE_PAGE)
+        user_name.get_attribute("textContent")
+
     def click_button_submit(self):
         logger.info('Click submit button')
         click_button_submit = self.driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_SUBMIT)

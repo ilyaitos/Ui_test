@@ -6,12 +6,17 @@ from conftest import driver
 from home_page import HomePage
 from dashboard_page import DashboardPage
 from profile_page import ProfilePage
+from launches_page import LaunchesPage
 from waiter import wait
+from time import sleep
+
+
 
 
 home = HomePage(driver)
 dashboard = DashboardPage(driver)
 profile = ProfilePage(driver)
+launches = LaunchesPage(driver)
 url_dashboard_page = "http://localhost:8080/ui/#default_personal/"
 url_registration_page = 'http://localhost:8080/ui/#login'
 
@@ -20,11 +25,12 @@ def test_dashboard():
     home.click_button_dashboard()
     assert home.current_url() == url_dashboard_page + "dashboard"
 
-# def test_launches():
-#     home.click_button_launches()
-#     assert home.current_url() == url_dashboard_page + "launches/all"
-#
-#
+
+def test_launches():
+    home.click_button_launches()
+    assert home.current_url() == url_dashboard_page + "launches/all"
+
+
 # def test_filters():
 #     home.click_button_filters()
 #     assert home.current_url() == url_dashboard_page + "filters"
@@ -43,7 +49,31 @@ def test_dashboard():
 # def test_project_settings():
 #     home.click_button_project_settings()
 #     assert home.current_url() == url_dashboard_page + "settings/general"
+
+# def test_dashboard_passed():
+#     home.click_button_dashboard()
+#     assert home.current_url() == url_dashboard_page + "dashboard"
 #
+# @pytest.mark.xfail
+# def test_dashboard_failed():
+#     home.click_button_dashboard()
+#     assert home.current_url() == url_dashboard_page + "dashboard1"
+#
+# @pytest.mark.skip
+# def test_dashboard_skipped():
+#     home.click_button_dashboard()
+#     assert home.current_url() == url_dashboard_page + "dashboard"
+
+# def test_status():
+#     home.click_button_launches()
+#     launches.click_launches_example()
+#     dashboard_status_passed = driver.find_elements(By.XPATH, LocatorsLaunches.LOCATOR_DASHBOARD_STATUS_PASSED)
+#     w = dashboard_status_passed.get_attribute("textContent")
+#     print(w)
+
+
+
+
 #
 # def test_add_new_dashboard():
 #     name = 'ilya'
@@ -56,10 +86,9 @@ def test_dashboard():
 #     dashboard.click_button_confirm_delete_dashboard()
 #     home.click_button_dashboard()
 #     assert dashboard.dashboard_name() == []
-
+#
 #
 # def test_add_new_widget():
-#     # popap
 #     name = 'ilya'
 #     home.click_button_dashboard()
 #     dashboard.click_button_add_new_dashboard()
@@ -77,7 +106,7 @@ def test_dashboard():
 #     home.click_button_dashboard()
 #     dashboard.click_button_delete_dashboard()
 #     dashboard.click_button_confirm_delete_dashboard()
-
+#
 #
 # def test_profile():
 #     city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']
@@ -91,6 +120,7 @@ def test_dashboard():
 #     driver.refresh()
 #     user_name = driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_USER_NAME_ON_THE_PAGE)
 #     assert user_name.get_attribute("textContent") == name
+#
 #
 # def test_profile_logout():
 #     dashboard.click_button_dashboard()

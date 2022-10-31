@@ -40,3 +40,8 @@ class LocatorsProfile:
     LOCATOR_USER_NAME = '//input[ @ placeholder = "Enter user name"]'
     LOCATOR_SUBMIT = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
     LOCATOR_USER_NAME_ON_THE_PAGE = '//span[@class="userInfo__name--1aIPl"]'
+
+
+class LocatorsLaunches:
+    LOCATOR_TEST_EXAMPLE ='(//*[@href="#default_personal/launches/all/98"])[1]'
+    LOCATOR_DASHBOARD_STATUS_PASSED = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//*[text()="test.py::test_dashboard_passed"]/../../../../../../..//*[@class="inputDropdown__value--2gB2s statusDropdown__value--2-1wZ"]'

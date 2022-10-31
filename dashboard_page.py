@@ -92,3 +92,5 @@ class DashboardPage(HomePage):
         click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
         click_button_save_add.click()
         logger.info('Add button is clicked')
+
+
