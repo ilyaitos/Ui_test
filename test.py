@@ -7,8 +7,6 @@ from home_page import HomePage
 from dashboard_page import DashboardPage
 from profile_page import ProfilePage
 from launches_page import LaunchesPage
-from waiter import wait
-from time import sleep
 
 
 home = HomePage(driver)
@@ -26,39 +24,34 @@ def add_new_dashboard():
     dashboard.click_button_add_new_dashboard()
     dashboard.input_name_new_dashboard(name)
     dashboard.click_button_add()
-    # yield
-    # home.click_button_dashboard()
-    # dashboard.click_button_delete_dashboard()
-    # dashboard.click_button_confirm_delete_dashboard()
 
-#
-# @pytest.fixture(autouse=True, scope="module")
-# def add_new_widget():
-#     home.click_button_dashboard()
-#     dashboard.click_dashboard_name()
-#     dashboard.click_button_add_new_widget()
-#     dashboard.click_button_widget_launch_statistics_chart()
-#     dashboard.click_button_widget_type_next_step()
-#     dashboard.click_button_configure_widget_filter_sddf()
-#     dashboard.click_button_configure_widget_type_next_step()
-#     dashboard.click_button_save_add()
 
+@pytest.fixture(autouse=True, scope="module")
+def add_new_widget():
+    home.click_button_dashboard()
+    dashboard.click_dashboard_name()
+    dashboard.click_button_add_new_widget()
+    dashboard.click_button_widget_launch_statistics_chart()
+    dashboard.click_button_widget_type_next_step()
+    dashboard.click_button_configure_widget_filter_sddf()
+    dashboard.click_button_configure_widget_type_next_step()
+    dashboard.click_button_save_add()
 
 #
 # def test_dashboard():
 #     home.click_button_dashboard()
 #     assert home.current_url() == url_dashboard_page + "dashboard"
 #
-
-def test_launches():
-    home.click_button_launches()
-    assert home.current_url() == url_dashboard_page + "launches/all"
-
-
-def test_filters():
-    home.click_button_filters()
-    assert home.current_url() == url_dashboard_page + "filters"
-
+#
+# def test_launches():
+#     home.click_button_launches()
+#     assert home.current_url() == url_dashboard_page + "launches/all"
+#
+#
+# def test_filters():
+#     home.click_button_filters()
+#     assert home.current_url() == url_dashboard_page + "filters"
+#
 #
 # def test_debug():
 #     home.click_button_debug()
@@ -108,7 +101,7 @@ def test_filters():
 #     home.click_button_launches()
 #     launches.click_launches_example()
 #     assert 'Skipped' == launches.dashboard_status_skipped()
-
+#
 #
 # def test_add_new_dashboard():
 #     name = 'ilya'
@@ -116,22 +109,19 @@ def test_filters():
 #     dashboard.input_name_new_dashboard(name)
 #     dashboard.click_button_add()
 #     driver.refresh()
-#     assert dashboard.dashboard_name().count(name) > 0
+#     assert dashboard.list_dashboard_name().count(name) > 0
+# #
 
-    # dashboard.click_button_delete_dashboard()
-    # dashboard.click_button_confirm_delete_dashboard()
+def test_add_new_widget():
+    dashboard.click_dashboard_name()
+    dashboard.click_button_add_new_widget()
+    dashboard.click_button_widget_launch_statistics_chart()
+    dashboard.click_button_widget_type_next_step()
+    dashboard.click_button_configure_widget_filter_sddf()
+    dashboard.click_button_configure_widget_type_next_step()
+    dashboard.click_button_save_add()
+    assert dashboard.widget_name() != []
 
-#
-# def test_add_new_widget():
-#     dashboard.click_dashboard_name()
-#     dashboard.click_button_add_new_widget()
-#     dashboard.click_button_widget_launch_statistics_chart()
-#     dashboard.click_button_widget_type_next_step()
-#     dashboard.click_button_configure_widget_filter_sddf()
-#     dashboard.click_button_configure_widget_type_next_step()
-#     dashboard.click_button_save_add()
-#     assert dashboard.widget_name() != []
-#
 #
 # def test_profile():
 #     city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']
@@ -161,31 +151,14 @@ def test_filters():
 #     home.click_button_dashboard()
 #     assert home.current_url() == url_dashboard_page + "dashboard"
 
-@pytest.fixture(autouse=True, scope="module")
-def fff():
+
+@pytest.fixture(autouse=True, scope="package")
+def delete_dashboard():
     home.click_button_dashboard()
-    qq = driver.find_elements(By.XPATH, '//*[@class="gridRow__grid-row-wrapper--1dI9K"]')
-    count = len(qq)
+    list_name = dashboard.list_dashboard_name()
+    count = len(list_name)
     while count > 0:
         home.click_button_dashboard()
         dashboard.click_button_delete_dashboard()
         dashboard.click_button_confirm_delete_dashboard()
         count -= 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-# while
-#     def delete_dashboard():
-#         home.click_button_dashboard()
-#         dashboard.click_button_delete_dashboard()
-#         dashboard.click_button_confirm_delete_dashboard()
