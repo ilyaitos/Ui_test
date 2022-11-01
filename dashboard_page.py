@@ -8,8 +8,15 @@ from home_page import HomePage
 class DashboardPage(HomePage):
 
     def list_dashboard_name(self):
-        dashboard_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.LOCATOR_LIST_DASHBOARD_NAME)
-        return dashboard_name
+        list_dashboard_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.LOCATOR_LIST_DASHBOARD_NAME)
+        return list_dashboard_name
+
+    def dashboard_name(self):
+        lists = []
+        dashboard_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.LOCATOR_DASHBOARD_NAME)
+        for x in dashboard_name:
+            lists.append(x.get_attribute("textContent"))
+        return lists
 
     def widget_name(self):
         widget_name = self.driver.find_elements(By.XPATH, LocatorsNewWidget.LOCATOR_WIDGET_NAME)
