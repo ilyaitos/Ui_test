@@ -1,0 +1,16 @@
+INFO - 2022-11-01 22:11:34 - dashboard_page.py - click_dashboard_name - Click dashboard name 
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_dashboard_name - Dashboard name is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_add_new_widget - Click add new widget button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_add_new_widget - Add new widget dashboard button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_widget_launch_statistics_chart - Click widget launch statistics chart button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_widget_launch_statistics_chart - Widget launch statistics chart button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_widget_type_next_step - Click next step button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_widget_type_next_step - Next step button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_configure_widget_filter_sddf - Click widget filter sddf button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_configure_widget_filter_sddf - Widget filter sddf button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_configure_widget_type_next_step - Click next step button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_configure_widget_type_next_step - Next step button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_save_add - Click add button
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - click_button_save_add - Add button is clicked
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - widget_name - Find widget name
+INFO - 2022-11-01 22:11:35 - dashboard_page.py - widget_name - Widget name found

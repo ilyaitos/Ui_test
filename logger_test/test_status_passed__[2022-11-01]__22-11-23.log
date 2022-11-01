@@ -1,0 +1,6 @@
+INFO - 2022-11-01 22:11:24 - home_page.py - click_button_launches - Click launches button
+INFO - 2022-11-01 22:11:24 - home_page.py - click_button_launches - Launches button is clicked
+INFO - 2022-11-01 22:11:24 - launches_page.py - click_launches_example - Click launches example
+INFO - 2022-11-01 22:11:24 - launches_page.py - click_launches_example - Launches example is clicked
+INFO - 2022-11-01 22:11:24 - launches_page.py - dashboard_status_passed - Find  dashboard status passed
+INFO - 2022-11-01 22:11:27 - launches_page.py - dashboard_status_passed - Dashboard status passed found

@@ -1,0 +1,30 @@
+INFO - 2022-11-01 22:11:18 - test.py - add_new_dashboard - Create new dashboard
+INFO - 2022-11-01 22:11:18 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:18 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - click_button_add_new_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - click_button_add_new_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - input_name_new_dashboard - Enter name
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - input_name_new_dashboard - Name accepted
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - click_button_add - Click add button
+INFO - 2022-11-01 22:11:18 - dashboard_page.py - click_button_add - Add button is clicked
+INFO - 2022-11-01 22:11:18 - test.py - add_new_dashboard - New dashboard created by
+INFO - 2022-11-01 22:11:18 - test.py - add_new_widget - Create new widget
+INFO - 2022-11-01 22:11:18 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:19 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_dashboard_name - Click dashboard name 
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_dashboard_name - Dashboard name is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_add_new_widget - Click add new widget button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_add_new_widget - Add new widget dashboard button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_widget_launch_statistics_chart - Click widget launch statistics chart button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_widget_launch_statistics_chart - Widget launch statistics chart button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_widget_type_next_step - Click next step button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_widget_type_next_step - Next step button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_configure_widget_filter_sddf - Click widget filter sddf button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_configure_widget_filter_sddf - Widget filter sddf button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_configure_widget_type_next_step - Click next step button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_configure_widget_type_next_step - Next step button is clicked
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_save_add - Click add button
+INFO - 2022-11-01 22:11:19 - dashboard_page.py - click_button_save_add - Add button is clicked
+INFO - 2022-11-01 22:11:19 - test.py - add_new_widget - New widget created by
+INFO - 2022-11-01 22:11:20 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:20 - home_page.py - click_button_dashboard - Dashboard button is clicked

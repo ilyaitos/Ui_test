@@ -1,0 +1,22 @@
+INFO - 2022-11-01 22:11:38 - home_page.py - click_button_login - Click login button
+INFO - 2022-11-01 22:11:38 - home_page.py - click_button_login - Login button is clicked
+INFO - 2022-11-01 22:11:38 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:38 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:38 - test.py - delete_dashboard - Delete dashboard
+INFO - 2022-11-01 22:11:38 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:39 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - list_dashboard_name - Find list dashboard name
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - list_dashboard_name - List dashboard name found
+INFO - 2022-11-01 22:11:39 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:39 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_delete_dashboard - Click delete dashboard button
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_delete_dashboard - Delete dashboard button is clicked
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_confirm_delete_dashboard - Confirm delete dashboard
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_confirm_delete_dashboard - Confirmed dashboard deletion
+INFO - 2022-11-01 22:11:39 - home_page.py - click_button_dashboard - Click dashboard button
+INFO - 2022-11-01 22:11:39 - home_page.py - click_button_dashboard - Dashboard button is clicked
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_delete_dashboard - Click delete dashboard button
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_delete_dashboard - Delete dashboard button is clicked
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_confirm_delete_dashboard - Confirm delete dashboard
+INFO - 2022-11-01 22:11:39 - dashboard_page.py - click_button_confirm_delete_dashboard - Confirmed dashboard deletion
+INFO - 2022-11-01 22:11:39 - test.py - delete_dashboard - Dashboard deleted
