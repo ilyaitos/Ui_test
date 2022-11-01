@@ -1,0 +1,10 @@
+INFO - 2022-11-01 17:43:03 - home_page.py - click_button_default_drop - Click default drop button
+INFO - 2022-11-01 17:43:04 - home_page.py - click_button_default_drop - Default drop button is clicked
+INFO - 2022-11-01 17:43:04 - home_page.py - click_button_profile - Click profile button
+INFO - 2022-11-01 17:43:04 - home_page.py - click_button_profile - Profile button is clicked
+INFO - 2022-11-01 17:43:04 - profile_page.py - click_button_editing_nickname - Click editing nickname button
+INFO - 2022-11-01 17:43:04 - profile_page.py - click_button_editing_nickname - Editing nickname button is clicked
+INFO - 2022-11-01 17:43:04 - profile_page.py - input_user_name - Enter user name
+INFO - 2022-11-01 17:43:04 - profile_page.py - input_user_name - User name accepted
+INFO - 2022-11-01 17:43:04 - profile_page.py - click_button_submit - Click submit button
+INFO - 2022-11-01 17:43:04 - profile_page.py - click_button_submit - Submit button is clicked
