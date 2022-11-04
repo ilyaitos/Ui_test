@@ -4,11 +4,12 @@ from selenium.webdriver.common.by import By
 from locator import *
 from conftest import driver, logger
 from home_page import HomePage
-from dashboard_page import DashboardPage, NameWidget
+from dashboard_page import DashboardPage, NameWidget, ObjectsPage
 from profile_page import ProfilePage
 from launches_page import LaunchesPage
 
 
+objects = ObjectsPage(driver)
 home = HomePage(driver)
 dashboard = DashboardPage(driver)
 profile = ProfilePage(driver)
@@ -29,47 +30,47 @@ def login():
     home.input_password(password)
     home.click_button_login()
 
-
-@pytest.fixture(autouse=True, scope="module")
-def add_new_dashboard(login):
-    logger.info('Create new dashboard')
-    name = 'Cat'
-    home.click_button_dashboard()
-    dashboard.click_button_add_new_dashboard()
-    dashboard.input_name_new_dashboard(name)
-    dashboard.click_button_add()
-    logger.info('New dashboard created by')
-
-#тип, фильтр
-@pytest.fixture(autouse=True, scope="module")
-def add_new_widget(login):
-    logger.info('Create new widget')
-    name = NameWidget.LAUNCH_STATISTICS_CHART
-    home.click_button_dashboard()
-    dashboard.click_dashboard_name()
-    dashboard.click_button_add_new_widget()
-    dashboard.click_button_widget_launch_statistics_chart(name)
-    dashboard.click_button_widget_type_next_step()
-    dashboard.click_button_configure_widget_filter_sddf()
-    dashboard.click_button_configure_widget_type_next_step()
-    dashboard.click_button_save_add()
-    logger.info('New widget created by')
-
-# обект дпш борд
-
-@pytest.fixture(autouse=True, scope="module")
-def delete_dashboard(login):
-    yield
-    logger.info('Delete dashboard')
-    home.click_button_dashboard()
-    list_name = dashboard.list_dashboard_name()
-    count = len(list_name)
-    while count > 0:
-        home.click_button_dashboard()
-        dashboard.click_button_delete_dashboard()
-        dashboard.click_button_confirm_delete_dashboard()
-        count -= 1
-    logger.info('Dashboard deleted')
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def add_new_dashboard(login):
+#     logger.info('Create new dashboard')
+#     name = 'Cat'
+#     home.click_button_dashboard()
+#     dashboard.click_button_add_new_dashboard()
+#     dashboard.input_name_new_dashboard(name)
+#     dashboard.click_button_add()
+#     logger.info('New dashboard created by')
+#
+# #тип, фильтр
+# @pytest.fixture(autouse=True, scope="module")
+# def add_new_widget(login):
+#     logger.info('Create new widget')
+#     name = NameWidget.LAUNCH_STATISTICS_CHART
+#     home.click_button_dashboard()
+#     dashboard.click_dashboard_name()
+#     dashboard.click_button_add_new_widget()
+#     dashboard.click_button_widget_launch_statistics_chart(name)
+#     dashboard.click_button_widget_type_next_step()
+#     dashboard.click_button_configure_widget_filter_sddf()
+#     dashboard.click_button_configure_widget_type_next_step()
+#     dashboard.click_button_save_add()
+#     logger.info('New widget created by')
+#
+# # обект дпш борд
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def delete_dashboard(login):
+#     yield
+#     logger.info('Delete dashboard')
+#     home.click_button_dashboard()
+#     list_name = dashboard.list_dashboard_name()
+#     count = len(list_name)
+#     while count > 0:
+#         home.click_button_dashboard()
+#         dashboard.click_button_delete_dashboard()
+#         dashboard.click_button_confirm_delete_dashboard()
+#         count -= 1
+#     logger.info('Dashboard deleted')
 
 #
 # def test_filters():

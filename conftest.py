@@ -12,7 +12,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 #конфигурейшенс
 #локал хост
-#разнести тест
+
 @pytest.hookimpl
 def pytest_runtest_setup(item):
     logging_plugin = item.config.pluginmanager.get_plugin("logging-plugin")

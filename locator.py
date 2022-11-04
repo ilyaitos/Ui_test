@@ -33,6 +33,8 @@ class LocatorsNewWidget:
     LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP = '(//div[@class="widgetWizardModal__widget-wizard--fG8kx"]//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[3]'
     LOCATOR_SAVE_ADD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
     LOCATOR_WIDGET_NAME = '//div[@class="widget__widget--mVI7B"]'
+    LOCATOR_INPUT_WIDGET_NAME = '//*[@placeholder="Enter widget name"]'
+
 
 
 class LocatorsNameWidget:
@@ -57,6 +59,12 @@ class LocatorsNameWidget:
     LOCATOR_WIDGET_COMPONENT_HEALTH_CHECK = '//div[@class="widget-type-selector"]//div[text() ="Component health check"]'
     LOCATOR_WIDGET_COMPONENT_HEALTH_CHECK_TABLE_VIEW = '//div[@class="widget-type-selector"]//div[text() ="Component health check (table view)"]'
     LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET = '//div[@class="widget-type-selector"]//div[text() ="Most time-consuming test cases widget (TOP-20)"]'
+
+
+class LocatorsNameFilter:
+    LOCATOR_FILTER_1 = "// *[text() = 'filter_1']"
+    LOCATOR_FILTER_2 = "// *[text() = 'filter_2']"
+    LOCATOR_FILTER_3 = "// *[text() = 'filter_3']"
 
 
 class LocatorsProfile:

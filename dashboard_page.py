@@ -28,6 +28,40 @@ class NameWidget:
     COMPONENT_HEALTH_CHECK_TABLE_VIEW = LocatorsNameWidget.LOCATOR_WIDGET_COMPONENT_HEALTH_CHECK_TABLE_VIEW
     MOST_TIME_CONSUMING_TEST_CASES_WIDGET = LocatorsNameWidget.LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET
 
+class NameFilter:
+    FILTER_1 = LocatorsNameFilter.LOCATOR_FILTER_1
+    FILTER_2 = LocatorsNameFilter.LOCATOR_FILTER_2
+    FILTER_3 = LocatorsNameFilter.LOCATOR_FILTER_3
+
+class ObjectsPage(HomePage):
+
+    def objects_dashboard(self, name):
+        click_button_add_new_dashboard = self.driver.find_element(By.XPATH,
+                                                                  LocatorsNewDashboard.LOCATOR_BUTTON_ADD_NEW_DASHBOARD)
+        click_button_add_new_dashboard.click()
+        input_name_new_dashboard = self.driver.find_element(By.XPATH,
+                                                            LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
+        input_name_new_dashboard.send_keys(name)
+        click_button_add = self.driver.find_element(By.XPATH,
+                                                    LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
+        click_button_add.click()
+
+
+
+    def objects_widget(self, name):
+        click_button_add_new_widget = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_ADD_NEW_WIDGET).click()
+        click_button_widget_launch_statistics_chart = self.driver.find_element(By.XPATH, name).click()
+        click_button_widget_type_next_step = self.driver.find_element(By.XPATH,
+                                                                      LocatorsNewWidget.LOCATOR_WIDGET_TYPE_NEXT_STEP).click()
+        click_button_configure_widget_filter_sddf = self.driver.find_element(By.XPATH,
+                                                                             LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_FILTER_SDDF).click()
+        click_button_configure_widget_type_next_step = self.driver.find_element(By.XPATH,
+                                                                                LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP).send_keys(Keys.ENTER)
+        click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD).click()
+
+
+
+
 
 class DashboardPage(HomePage):
 
@@ -110,12 +144,38 @@ class DashboardPage(HomePage):
         click_button_widget_type_next_step.click()
         logger.info('Next step button is clicked')
 
-    def click_button_configure_widget_filter_sddf(self):
+
+
+
+
+
+
+
+
+
+    def click_button_configure_widget_filter(self, name_filter):
         logger.info('Click widget filter sddf button')
-        click_button_configure_widget_filter_sddf = self.driver.find_element(By.XPATH,
-                                                                             LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_FILTER_SDDF)
+        click_button_configure_widget_filter_sddf = self.driver.find_element(By.XPATH, name_filter)
         click_button_configure_widget_filter_sddf.click()
         logger.info('Widget filter sddf button is clicked')
+
+    def input_widget_name(self, name_widget):
+        logger.info('Click widget filter sddf button')
+        input_widget_name = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_INPUT_WIDGET_NAME)
+        input_widget_name.send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
+        input_widget_name.send_keys(name_widget)
+        logger.info('Widget filter sddf button is clicked')
+
+
+
+
+
+
+
+
+
+
+
 
     def click_button_configure_widget_type_next_step(self):
         logger.info('Click next step button')
