@@ -40,10 +40,7 @@ def login():
 @pytest.fixture(autouse=True, scope="module")
 def add_new_dashboard(login):
     logger.info('Create new dashboard')
-    home.click_button_dashboard()
-    dashboard.click_button_add_new_dashboard()
-    dashboard.input_name_new_dashboard(dashboard_name_2)
-    dashboard.click_button_add()
+    objects.objects_dashboard(dashboard_name_1)
     logger.info('New dashboard created by')
 
 
@@ -61,7 +58,6 @@ def add_new_widget(login):
 def delete_dashboard(login):
     yield
     objects.objects_delete_dashboard(list_dashboard_name)
-
 
 
 def test_filters():
