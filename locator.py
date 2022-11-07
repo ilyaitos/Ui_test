@@ -5,7 +5,7 @@ class LocatorsRegistrationPage:
 
 
 class LocatorsHomePage:
-    LOCATOR_BUTTON_DASHBOARD = '//a[@class="sidebarButton__nav-link--2TC0L sidebarButton__active--3dvg_"]'
+    LOCATOR_BUTTON_DASHBOARD = '(//a[@href="#default_personal/dashboard"])[1]'
     LOCATOR_BUTTON_LAUNCHES = '//a[@href="#default_personal/launches"]'
     LOCATOR_BUTTON_FILTERS = '//a[@href="#default_personal/filters"]'
     LOCATOR_BUTTON_DEBUG = '//a[@href="#default_personal/userdebug/all"]'
@@ -24,6 +24,9 @@ class LocatorsNewDashboard:
     LOCATOR_CONFIRM_DELETE_DASHBOARD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-tomato--Wvy5L"]'
     LOCATOR_DASHBOARD_NAME = '//a[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"]'
     LOCATOR_LIST_DASHBOARD_NAME = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]'
+    www = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//a[text() = "ilya"]'
+    www2 = '//*[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"]'
+    www3 = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//a[text() = "ilya"]/..//*[@class="icon__icon--2m6Od icon__icon-delete--1jIHF"]'
 
 
 class LocatorsNewWidget:
@@ -32,7 +35,7 @@ class LocatorsNewWidget:
     LOCATOR_CONFIGURE_WIDGET_FILTER_SDDF = '//div[@class="filtersItem__filter-item--1OosV"]'
     LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP = '(//div[@class="widgetWizardModal__widget-wizard--fG8kx"]//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[3]'
     LOCATOR_SAVE_ADD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
-    LOCATOR_WIDGET_NAME = '//div[@class="widget__widget--mVI7B"]'
+    LOCATOR_WIDGET_NAME = '//div[@class="widgetHeader__widget-name-block--7fZoV"][text() = "Dog1"]'
     LOCATOR_INPUT_WIDGET_NAME = '//*[@placeholder="Enter widget name"]'
 
 
