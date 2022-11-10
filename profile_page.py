@@ -1,8 +1,14 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from locator import *
 from conftest import logger
 from home_page import HomePage
+
+
+class LocatorsProfile:
+    LOCATOR_EDITING_NICKNAM = '//span[@class="userInfo__pencil-icon--2WZhA"]'
+    LOCATOR_USER_NAME = '//input[ @ placeholder = "Enter user name"]'
+    LOCATOR_SUBMIT = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
+    LOCATOR_USER_NAME_ON_THE_PAGE = '//span[@class="userInfo__name--1aIPl"]'
 
 
 class ProfilePage(HomePage):
@@ -21,8 +27,11 @@ class ProfilePage(HomePage):
         logger.info('User name accepted')
 
     def user_name(self):
+        logger.info('Find name user ')
         user_name = self.driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_USER_NAME_ON_THE_PAGE)
-        user_name.get_attribute("textContent")
+        name = user_name.get_attribute("textContent")
+        logger.info('Name user found')
+        return name
 
     def click_button_submit(self):
         logger.info('Click submit button')

@@ -1,6 +1,17 @@
 from selenium.webdriver.common.by import By
-from locator import *
 from conftest import logger
+
+
+class LocatorsHomePage:
+    LOCATOR_BUTTON_DASHBOARD = '(//a[@href="#default_personal/dashboard"])[1]'
+    LOCATOR_BUTTON_LAUNCHES = '//a[@href="#default_personal/launches"]'
+    LOCATOR_BUTTON_FILTERS = '//a[@href="#default_personal/filters"]'
+    LOCATOR_BUTTON_DEBUG = '//a[@href="#default_personal/userdebug/all"]'
+    LOCATOR_BUTTON_PROJECT_MEMBERS = '//a[@href="#default_personal/members"]'
+    LOCATOR_BUTTON_PROJECT_SETTINGS = '//a[@href="#default_personal/settings"]'
+    LOCATOR_BUTTON_DEFAULT_DROP = '(//*[@class="userBlock__avatar-wrapper--_Jkks"])[1]'
+    LOCATOR_BUTTON_PROFILE = '(//a[contains(@href,"#user-profile")])[2]'
+    LOCATOR_BUTTON_LOGOUT = '//div[@class="userBlock__menu-item--3VBsZ"]'
 
 
 class HomePage:
@@ -11,20 +22,6 @@ class HomePage:
     def current_url(self):
         current_url = self.driver.current_url
         return current_url
-
-    def input_login(self, login):
-        input_login = self.driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_LOGIN_FIELD)
-        input_login.send_keys(login)
-
-    def input_password(self, password):
-        input_password = self.driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_PASSWORD_FIELD)
-        input_password.send_keys(password)
-
-    def click_button_login(self):
-        logger.info('Click login button')
-        click_button_login = self.driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_BUTTON_TO_COME_IN)
-        click_button_login.click()
-        logger.info('Login button is clicked')
 
     def click_button_dashboard(self):
         logger.info('Click dashboard button')

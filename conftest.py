@@ -29,3 +29,4 @@ def exit_web():
 @pytest.fixture(autouse=True)
 def start_page():
     driver.get('http://localhost:8080/ui/#default_personal/dashboard')
+#юзер в обект

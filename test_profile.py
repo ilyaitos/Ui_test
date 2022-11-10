@@ -12,8 +12,7 @@ def test_profile(login):
     profile.input_user_name(name)
     profile.click_button_submit()
     driver.refresh()
-    user_name = driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_USER_NAME_ON_THE_PAGE)
-    assert user_name.get_attribute("textContent") == name
+    assert profile.user_name() == name
 
 
 def test_profile_logout(login):

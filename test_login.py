@@ -6,8 +6,8 @@ def test_login():
     driver.get(link)
     login = 'default'
     password = '1q2w3e'
-    home.input_login(login)
-    home.input_password(password)
-    home.click_button_login()
+    registration.input_login(login)
+    registration.input_password(password)
+    registration.click_button_login()
     home.click_button_dashboard()
     assert home.current_url() == url_dashboard_page + "dashboard"

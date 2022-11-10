@@ -1,8 +1,63 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from locator import *
 from conftest import logger
 from home_page import HomePage
+from test import driver
+from home_page import LocatorsHomePage
+
+
+class LocatorsNewDashboard:
+    LOCATOR_BUTTON_ADD_NEW_DASHBOARD = '(//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[1]'
+    LOCATOR_INPUT_NAME_NEW_DASHBOARD = '//input[@placeholder="Enter dashboard name"]'
+    LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
+    LOCATOR_DELETE_DASHBOARD = '//i[@class="icon__icon--2m6Od icon__icon-delete--1jIHF"]'
+    LOCATOR_CONFIRM_DELETE_DASHBOARD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-tomato--Wvy5L"]'
+    LOCATOR_DASHBOARD_NAME = '//a[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"]'
+    LOCATOR_LIST_DASHBOARD_NAME = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]'
+    www = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//a[text() = "ilya"]'
+    www2 = '//*[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"]'
+    www3 = '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//a[text() = "ilya"]/..//*[@class="icon__icon--2m6Od icon__icon-delete--1jIHF"]'
+    www222 = '//*[@class="gridRow__grid-row--1pS-5"]//*[text() ="ilya"]'
+
+
+class LocatorsNewWidget:
+    LOCATOR_ADD_NEW_WIDGET = '(//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[2]'
+    LOCATOR_WIDGET_TYPE_NEXT_STEP = '//div[@class="widgetWizardModal__widget-wizard--fG8kx"]//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"]'
+    LOCATOR_CONFIGURE_WIDGET_FILTER_SDDF = '//div[@class="filtersItem__filter-item--1OosV"]'
+    LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP = '(//div[@class="widgetWizardModal__widget-wizard--fG8kx"]//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[3]'
+    LOCATOR_SAVE_ADD = '//button[@class="bigButton__big-button--ivY7j bigButton__color-booger--2IfQT"]'
+    LOCATOR_WIDGET_NAME = '//div[@class="widgetHeader__widget-name-block--7fZoV"][text() = "Dog1"]'
+    LOCATOR_INPUT_WIDGET_NAME = '//*[@placeholder="Enter widget name"]'
+
+
+class LocatorsNameWidget:
+    LOCATOR_WIDGET_LAUNCH_STATISTICS_CHART = '//div[@class="widget-type-selector"]//div[text() ="Launch statistics chart"]'
+    LOCATOR_WIDGET_OVERALL_STSTISTICS = '//div[@class="widget-type-selector"]//div[text() ="Overall statistics"]'
+    LOCATOR_WIDGET_LAUNCHES_DURATION_CHART = '//div[@class="widget-type-selector"]//div[text() ="Launches duration chart"]'
+    LOCATOR_WIDGET_LAUNCH_EXECUTION_AND_ISSUE_STATISTIC = '//div[@class="widget-type-selector"]//div[text() ="Launch execution and issue statistic"]'
+    LOCATOR_WIDGET_PROJECT_ACTIVITY_PANEL = '//div[@class="widget-type-selector"]//div[text() ="Project activity panel"]'
+    LOCATOR_WIDGET_TEST_CASES_GROWTH_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Test-cases growth trend chart"]'
+    LOCATOR_WIDGET_INVESTIGATED_PERCENTAGE_OF_LAUNCHES = '//div[@class="widget-type-selector"]//div[text() ="Investigated percentage of launches"]'
+    LOCATOR_WIDGET_LAUNCHES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Launches table"]'
+    LOCATOR_WIDGET_UNIQUE_BUGS_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Unique bugs table"]'
+    LOCATOR_WIDGET_MOST_FAILED_TEST_CASES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Most failed test-cases table (TOP-20)"]'
+    LOCATOR_WIDGET_FAILED_CASES_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Failed cases trend chart"]'
+    LOCATOR_WIDGET_NON_PASSED_TEST_CASES_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Non-passed test-cases trend chart"]'
+    LOCATOR_WIDGET_DIFFEREN_LAUNCHES_COMPARISON_CHART = '//div[@class="widget-type-selector"]//div[text() ="Different launches comparison chart"]'
+    LOCATOR_WIDGET_PASSING_RATE_PER_LAUNCH = '//div[@class="widget-type-selector"]//div[text() ="Passing rate per launch"]'
+    LOCATOR_WIDGET_PASSING_RATE_SUMMARY = '//div[@class="widget-type-selector"]//div[text() ="Passing rate summary"]'
+    LOCATOR_WIDGET_FLAKY_TEST_CASES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Flaky test cases table (TOP-20)"]'
+    LOCATOR_WIDGET_CUMULATIVE_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Cumulative trend chart"]'
+    LOCATOR_WIDGET_MOST_POPULAR_PATTERN_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Most popular pattern table (TOP-20)"]'
+    LOCATOR_WIDGET_COMPONENT_HEALTH_CHECK = '//div[@class="widget-type-selector"]//div[text() ="Component health check"]'
+    LOCATOR_WIDGET_COMPONENT_HEALTH_CHECK_TABLE_VIEW = '//div[@class="widget-type-selector"]//div[text() ="Component health check (table view)"]'
+    LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET = '//div[@class="widget-type-selector"]//div[text() ="Most time-consuming test cases widget (TOP-20)"]'
+
+
+class LocatorsNameFilter:
+    LOCATOR_FILTER_1 = "// *[text() = 'filter_1']"
+    LOCATOR_FILTER_2 = "// *[text() = 'filter_2']"
+    LOCATOR_FILTER_3 = "// *[text() = 'filter_3']"
 
 
 class NameWidget:
@@ -33,6 +88,35 @@ class NameFilter:
     FILTER_1 = LocatorsNameFilter.LOCATOR_FILTER_1
     FILTER_2 = LocatorsNameFilter.LOCATOR_FILTER_2
     FILTER_3 = LocatorsNameFilter.LOCATOR_FILTER_3
+
+
+
+
+
+
+
+
+
+class Dashboard():
+
+    def __init__(self, name_dashboard):
+        self.name_dashboard = name_dashboard
+
+
+#
+# def objects_dashboard(self):
+#     click_button_add_new_dashboard = driver.find_element(By.XPATH,
+#                                                               LocatorsNewDashboard.LOCATOR_BUTTON_ADD_NEW_DASHBOARD)
+#     click_button_add_new_dashboard.click()
+#     input_name_new_dashboard = driver.find_element(By.XPATH,
+#                                                         LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
+#     input_name_new_dashboard.send_keys(self.name1)
+#     click_button_add = driver.find_element(By.XPATH,
+#                                                 LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
+#     click_button_add.click()
+
+
+
 
 
 class ObjectsPage(HomePage):
@@ -103,14 +187,14 @@ class DashboardPage(HomePage):
         logger.info('List dashboard name found')
         return list_dashboard_name
 
-    def dashboard_name(self):
+    def search_dashboard_with_name(self, name):
         logger.info('Find dashboard name')
         lists = []
         dashboard_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.LOCATOR_DASHBOARD_NAME)
         for x in dashboard_name:
-            lists.append(x.get_attribute("textContent"))
+            if x.get_attribute("textContent") == name:
+                return name
         logger.info('Find dashboard found')
-        return lists
 
     def widget_name(self):
         logger.info('Find widget name')
@@ -126,7 +210,7 @@ class DashboardPage(HomePage):
         click_button_add_new_dashboard.click()
         logger.info('Dashboard button is clicked')
 
-    def input_name_new_dashboard(self, name):
+    def input_name_dashboard(self, name):
         logger.info('Enter name')
         input_name_new_dashboard = self.driver.find_element(By.XPATH,
                                                             LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
