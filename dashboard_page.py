@@ -4,6 +4,7 @@ from conftest import logger
 from home_page import HomePage
 from test import driver
 from home_page import LocatorsHomePage
+from enum import Enum
 
 
 class LocatorsNewDashboard:
@@ -54,13 +55,13 @@ class LocatorsNameWidget:
     LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET = '//div[@class="widget-type-selector"]//div[text() ="Most time-consuming test cases widget (TOP-20)"]'
 
 
-class LocatorsNameFilter:
+class LocatorsNameFilter():
     LOCATOR_FILTER_1 = "// *[text() = 'filter_1']"
     LOCATOR_FILTER_2 = "// *[text() = 'filter_2']"
     LOCATOR_FILTER_3 = "// *[text() = 'filter_3']"
 
 
-class NameWidget:
+class NameWidget(Enum):
     LAUNCH_STATISTICS_CHART = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCH_STATISTICS_CHART
     OVERALL_STSTISTICS = LocatorsNameWidget.LOCATOR_WIDGET_OVERALL_STSTISTICS
     LAUNCHES_DURATION_CHART = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCHES_DURATION_CHART
@@ -84,7 +85,7 @@ class NameWidget:
     MOST_TIME_CONSUMING_TEST_CASES_WIDGET = LocatorsNameWidget.LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET
 
 
-class NameFilter:
+class NameFilter(Enum):
     FILTER_1 = LocatorsNameFilter.LOCATOR_FILTER_1
     FILTER_2 = LocatorsNameFilter.LOCATOR_FILTER_2
     FILTER_3 = LocatorsNameFilter.LOCATOR_FILTER_3

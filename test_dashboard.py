@@ -34,12 +34,12 @@ def test_dashboard(login):
 # #коифигул
 #     # assert dashboard.dashboard_name().count(dashboard_name_1) > 0
 #
-def test_add_new_widget(login):
-    dashboard_name = 'ilya'
-    type_widget = NameWidget.LAUNCH_STATISTICS_CHART
-    name_filter = NameFilter.FILTER_1
-    name_widget = 'Dog1'
-    widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
-    dashboard.create_widget(widget)
-    new_widget = dashboard.get_widget()
-    assert name_widget == new_widget
+# def test_add_new_widget(login):
+#     dashboard_name = 'ilya'
+#     type_widget = NameWidget.LAUNCH_STATISTICS_CHART
+#     name_filter = NameFilter.FILTER_1
+#     name_widget = 'Dog1'
+#     widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
+#     dashboard.create_widget(widget)
+#     new_widget = dashboard.get_widget()
+#     assert name_widget == new_widget

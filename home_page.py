@@ -20,6 +20,7 @@ class HomePage:
         self.driver = driver
 
     def current_url(self):
+
         current_url = self.driver.current_url
         return current_url
 
