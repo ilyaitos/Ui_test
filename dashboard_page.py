@@ -54,7 +54,7 @@ class LocatorsNameWidget:
     LOCATOR_WIDGET_MOST_TIME_CONSUMING_TEST_CASES_WIDGET = '//div[@class="widget-type-selector"]//div[text() ="Most time-consuming test cases widget (TOP-20)"]'
 
 
-class LocatorsNameFilter():
+class LocatorsNameFilter:
     LOCATOR_FILTER_1 = "// *[text() = 'filter_1']"
     LOCATOR_FILTER_2 = "// *[text() = 'filter_2']"
     LOCATOR_FILTER_3 = "// *[text() = 'filter_3']"
