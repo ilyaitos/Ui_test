@@ -18,13 +18,6 @@ profile = ProfilePage(driver)
 launches = LaunchesPage(driver)
 
 
-
-dashboard_name_1 = 'ilya'
-dashboard_name_2 = 'Cat'
-
-list_dashboard_name = [dashboard_name_1, dashboard_name_2]
-
-
 @pytest.fixture(scope="module")
 def login():
     driver.implicitly_wait(7)
@@ -51,8 +44,8 @@ def login():
 #     objects.objects_widget(dashboard_name_2, type_widget, name_filter, name_widget)
 #     logger.info('New widget created by')
 #
-#
-# @pytest.fixture(autouse=True, scope="module")
-# def delete_dashboard(login):
-#     yield
-#     objects.objects_delete_dashboard(list_dashboard_name)
+
+@pytest.fixture(autouse=True, scope="module")
+def delete_dashboard(login):
+    yield
+    dashboard.delete_dashboard(['ilya', 'Cat'])

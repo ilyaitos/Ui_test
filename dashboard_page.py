@@ -2,7 +2,6 @@ from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from conftest import logger
 from home_page import HomePage
-from test import driver
 from home_page import LocatorsHomePage
 from enum import Enum
 
@@ -100,67 +99,67 @@ class Widget():
         self.name_widget = name_widget
 
 
-
-
 class Dashboard():
 
     def __init__(self, name_dashboard):
         self.name_dashboard = name_dashboard
 
 
-#
-# def objects_dashboard(self):
-#     click_button_add_new_dashboard = driver.find_element(By.XPATH,
-#                                                               LocatorsNewDashboard.LOCATOR_BUTTON_ADD_NEW_DASHBOARD)
-#     click_button_add_new_dashboard.click()
-#     input_name_new_dashboard = driver.find_element(By.XPATH,
-#                                                         LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
-#     input_name_new_dashboard.send_keys(self.name1)
-#     click_button_add = driver.find_element(By.XPATH,
-#                                                 LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
-#     click_button_add.click()
+class DashboardPage(HomePage):
 
 
-
-
-
-class ObjectsPage(HomePage):
-
-    def objects_dashboard(self, name):
+    def create_dashboard(self, dashboard):
         click_button_add_new_dashboard = self.driver.find_element(By.XPATH,
                                                                   LocatorsNewDashboard.LOCATOR_BUTTON_ADD_NEW_DASHBOARD)
         click_button_add_new_dashboard.click()
         input_name_new_dashboard = self.driver.find_element(By.XPATH,
                                                             LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
-        input_name_new_dashboard.send_keys(name)
+        input_name_new_dashboard.send_keys(dashboard.name)
         click_button_add = self.driver.find_element(By.XPATH,
                                                     LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
         click_button_add.click()
 
-    # def objects_widget(self, dashboard_name, type_widget, name_filter, name_widget):
-    #     lists = []
-    #     click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
-    #     click_button_dashboard.click()
-    #     list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
-    #     for x in list_name:
-    #         lists.append(x.get_attribute("textContent"))
-    #     if dashboard_name in lists:
-    #         click_dashboard_name = self.driver.find_element(By.XPATH, '(//*[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"][text() ="{}"])'.format(dashboard_name))
-    #         click_dashboard_name.click()
-    #         click_button_add_new_widget = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_ADD_NEW_WIDGET).click()
-    #         click_button_widget_launch_statistics_chart = self.driver.find_element(By.XPATH, type_widget).click()
-    #
-    #         click_button_widget_type_next_step = self.driver.find_element(By.XPATH,
-    #                                                                       LocatorsNewWidget.LOCATOR_WIDGET_TYPE_NEXT_STEP).click()
-    #         click_button_configure_widget_filter = self.driver.find_element(By.XPATH, name_filter).click()
-    #         click_button_configure_widget_type_next_step = self.driver.find_element(By.XPATH,
-    #                                                                                 LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP).send_keys(Keys.ENTER)
-    #         input_widget_name = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_INPUT_WIDGET_NAME)
-    #         input_widget_name.send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
-    #         input_widget_name.send_keys(name_widget)
-    #         click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD).click()
 
-    def objects_delete_dashboard(self, list_dashboard_name):
+
+#######################################################################################################################
+    def create_widget(self, widget):
+        lists = []
+        click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
+        click_button_dashboard.click()
+        list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
+        for x in list_name:
+            lists.append(x.get_attribute("textContent"))
+        if widget.dashboard_name in lists:
+            click_dashboard_name = self.driver.find_element(By.XPATH,
+                                                            '(//*[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"][text() ="{}"])'.format(
+                                                                widget.dashboard_name))
+            click_dashboard_name.click()
+            click_button_add_new_widget = self.driver.find_element(By.XPATH,
+                                                                   LocatorsNewWidget.LOCATOR_ADD_NEW_WIDGET)
+            click_button_add_new_widget.click()
+            click_button_widget_launch_statistics_chart = self.driver.find_element(By.XPATH, widget.type_widget)
+            click_button_widget_launch_statistics_chart.click()
+
+            click_button_widget_type_next_step = self.driver.find_element(By.XPATH,
+                                                                          LocatorsNewWidget.LOCATOR_WIDGET_TYPE_NEXT_STEP)
+            click_button_widget_type_next_step.click()
+            click_button_configure_widget_filter = self.driver.find_element(By.XPATH, widget.name_filter)
+            click_button_configure_widget_filter.click()
+            click_button_configure_widget_type_next_step = self.driver.find_element(By.XPATH,
+                                                                                    LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP)
+            click_button_configure_widget_type_next_step.send_keys(
+                Keys.ENTER)
+            input_widget_name = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_INPUT_WIDGET_NAME)
+            input_widget_name.send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
+            input_widget_name.send_keys(widget.name_widget)
+            click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
+            click_button_save_add.click()
+
+
+
+#####################################################################################################
+
+    def delete_dashboard(self, list_dashboard_name):
         lists = []
         click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
         click_button_dashboard.click()
@@ -176,42 +175,6 @@ class ObjectsPage(HomePage):
                     click_button_delete_dashboard.click()
                     click_button_confirm_delete_dashboard = self.driver.find_element(By.XPATH, LocatorsNewDashboard.LOCATOR_CONFIRM_DELETE_DASHBOARD)#+str(e)+
                     click_button_confirm_delete_dashboard.click()
-
-
-class DashboardPage(HomePage):
-
-
-    def create_widget(self, widget):
-        lists = []
-        click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
-        click_button_dashboard.click()
-        list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
-        for x in list_name:
-            lists.append(x.get_attribute("textContent"))
-        if widget.dashboard_name in lists:
-            click_dashboard_name = self.driver.find_element(By.XPATH,
-                                                            '(//*[@class="gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__name--1sWJs"][text() ="{}"])'.format(
-                                                                widget.dashboard_name))
-            click_dashboard_name.click()
-            click_button_add_new_widget = self.driver.find_element(By.XPATH,
-                                                                   LocatorsNewWidget.LOCATOR_ADD_NEW_WIDGET).click()
-            click_button_widget_launch_statistics_chart = self.driver.find_element(By.XPATH, widget.type_widget).click()
-
-            click_button_widget_type_next_step = self.driver.find_element(By.XPATH,
-                                                                          LocatorsNewWidget.LOCATOR_WIDGET_TYPE_NEXT_STEP).click()
-            click_button_configure_widget_filter = self.driver.find_element(By.XPATH, widget.name_filter).click()
-            click_button_configure_widget_type_next_step = self.driver.find_element(By.XPATH,
-                                                                                    LocatorsNewWidget.LOCATOR_CONFIGURE_WIDGET_TYPE_NEXT_STEP).send_keys(
-                Keys.ENTER)
-            input_widget_name = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_INPUT_WIDGET_NAME)
-            input_widget_name.send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
-            input_widget_name.send_keys(widget.name_widget)
-            click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
-            click_button_save_add.click()
-        return widget
-
-
-#####################################################################################################
 
     def click_button_widget_launch_statistics_chart(self, name):
         logger.info('Click widget launch statistics chart button')
