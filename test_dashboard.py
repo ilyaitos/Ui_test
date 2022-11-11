@@ -1,6 +1,6 @@
 from test import *
 from dashboard_page import Dashboard, Widget
-from enum import Enum
+
 #
 # def test_dashboard(login):
 #     home.click_button_dashboard()
