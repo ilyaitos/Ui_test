@@ -10,8 +10,6 @@ from datetime import datetime
 logger = logging.getLogger(__name__)
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-#конфигурейшенс
-#локал хост
 
 @pytest.hookimpl
 def pytest_runtest_setup(item):

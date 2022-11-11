@@ -3,24 +3,24 @@ from test import *
 
 def test_launches(login):
     home.click_button_launches()
-    assert home.current_url() == url_dashboard_page + "launches/all"
+    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "launches/all"
 
 
 def test_dashboard_passed(login):
     home.click_button_dashboard()
-    assert home.current_url() == url_dashboard_page + "dashboard"
+    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
 
 @pytest.mark.xfail(strict=True)
 def test_dashboard_failed(login):
     home.click_button_dashboard()
-    assert home.current_url() == url_dashboard_page + "dashboard"
+    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
 
 @pytest.mark.skip
 def test_dashboard_skipped(login):
     home.click_button_dashboard()
-    assert home.current_url() == url_dashboard_page + "dashboard"
+    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
 
 def test_status(login):
