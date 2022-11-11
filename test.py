@@ -25,31 +25,31 @@ def login():
     registration.input_login(config.get('Settings', 'login'))
     registration.input_password(config.get('Settings', 'password'))
     registration.click_button_login()
-
-
-@pytest.fixture(autouse=True, scope="module")
-def add_new_dashboard(login):
-    logger.info('Create new dashboard')
-    dashboard_name = 'ilya'
-    dashboards = Dashboard(dashboard_name)
-    dashboard.create_dashboard(dashboards)
-    driver.refresh()
-    logger.info('New dashboard created by')
-
-
-@pytest.fixture(autouse=True, scope="module")
-def add_new_widget(login):
-    logger.info('Create new widget')
-    dashboard_name = 'ilya'
-    type_widget = NameWidget.LAUNCH_STATISTICS_CHART
-    name_filter = NameFilter.FILTER_1
-    name_widget = 'Dog1'
-    widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
-    dashboard.create_widget(widget)
-    logger.info('New widget created by')
-
-
-@pytest.fixture(autouse=True, scope="module")
-def delete_dashboard(login):
-    yield
-    dashboard.delete_dashboard(['ilya', 'Cat'])
+#
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def add_new_dashboard(login):
+#     logger.info('Create new dashboard')
+#     dashboard_name = 'Cat'
+#     dashboards = Dashboard(dashboard_name)
+#     dashboard.create_dashboard(dashboards)
+#     driver.refresh()
+#     logger.info('New dashboard created by')
+#
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def add_new_widget(login):
+#     logger.info('Create new widget')
+#     dashboard_name = 'Cat'
+#     type_widget = NameWidget.LAUNCH_STATISTICS_CHART.value
+#     name_filter = NameFilter.FILTER_1.value
+#     name_widget = 'Dog2'
+#     widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
+#     dashboard.create_widget(widget)
+#     logger.info('New widget created by')
+#
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def delete_dashboard(login):
+#     yield
+#     dashboard.delete_dashboard(['ilya', 'Cat'])

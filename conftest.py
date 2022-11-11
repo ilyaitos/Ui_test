@@ -17,11 +17,11 @@ def pytest_runtest_setup(item):
     timestamp = datetime.strftime(datetime.now(), '[%Y-%m-%d]__%H-%M-%S')
     logging_plugin.set_log_path(os.path.join('logger_test', f'{item.name}__{timestamp}.log'))
 
-
-@pytest.fixture(autouse=True, scope="module")
-def exit_web():
-    yield
-    driver.quit()
+#
+# @pytest.fixture(autouse=True, scope="module")
+# def exit_web():
+#     yield
+#     driver.quit()
 
 
 @pytest.fixture(autouse=True)

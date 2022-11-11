@@ -101,8 +101,8 @@ class Widget():
 
 class Dashboard():
 
-    def __init__(self, name_dashboard):
-        self.name_dashboard = name_dashboard
+    def __init__(self, dashboard_name):
+        self.dashboard_name = dashboard_name
 
 
 class DashboardPage(HomePage):
@@ -114,7 +114,7 @@ class DashboardPage(HomePage):
         click_button_add_new_dashboard.click()
         input_name_new_dashboard = self.driver.find_element(By.XPATH,
                                                             LocatorsNewDashboard.LOCATOR_INPUT_NAME_NEW_DASHBOARD)
-        input_name_new_dashboard.send_keys(dashboard.name)
+        input_name_new_dashboard.send_keys(dashboard.dashboard_name)
         click_button_add = self.driver.find_element(By.XPATH,
                                                     LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
         click_button_add.click()
@@ -154,7 +154,7 @@ class DashboardPage(HomePage):
             input_widget_name.send_keys(widget.name_widget)
             click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
             click_button_save_add.click()
-
+        return
 
 
 #####################################################################################################
