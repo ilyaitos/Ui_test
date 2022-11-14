@@ -90,7 +90,7 @@ class NameFilter(Enum):
     FILTER_3 = LocatorsNameFilter.LOCATOR_FILTER_3
 
 
-class Widget():
+class Widget:
 
     def __init__(self, dashboard_name, type_widget, name_filter, name_widget):
         self.dashboard_name = dashboard_name
@@ -98,15 +98,26 @@ class Widget():
         self.name_filter = name_filter
         self.name_widget = name_widget
 
+    def __eq__(self, other):
+        if isinstance(other, Widget):
+            result = {self.dashboard_name == other.dashboard_name,
+                      self.type_widget == other.type_widget, self.name_filter == other.name_filter, self.name_widget == other.name_widget}
+            return all(result)
+        return False
 
-class Dashboard():
+
+class Dashboard:
 
     def __init__(self, dashboard_name):
         self.dashboard_name = dashboard_name
 
+    def __eq__(self, other):
+        if isinstance(other, Dashboard):
+            return self.dashboard_name == other.dashboard_name
+        return False
+
 
 class DashboardPage(HomePage):
-
 
     def create_dashboard(self, dashboard):
         click_button_add_new_dashboard = self.driver.find_element(By.XPATH,
@@ -119,9 +130,6 @@ class DashboardPage(HomePage):
                                                     LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
         click_button_add.click()
 
-
-
-#######################################################################################################################
     def create_widget(self, widget):
         lists = []
         click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
@@ -156,9 +164,6 @@ class DashboardPage(HomePage):
             click_button_save_add.click()
         return
 
-
-#####################################################################################################
-
     def delete_dashboard(self, list_dashboard_name):
         lists = []
         click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
@@ -190,7 +195,6 @@ class DashboardPage(HomePage):
 
     def search_dashboard_with_name(self, name):
         logger.info('Find dashboard name')
-        lists = []
         dashboard_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.LOCATOR_DASHBOARD_NAME)
         for x in dashboard_name:
             if x.get_attribute("textContent") == name:
