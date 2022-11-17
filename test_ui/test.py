@@ -14,6 +14,7 @@ ROOT_DIR = path.parent.absolute()
 config_path = os.path.join(ROOT_DIR, "setting.ini")
 config = configparser.ConfigParser()
 config.read(config_path, encoding='utf-8-sig')
+
 registration = RegistrationPage(driver)
 home = HomePage(driver)
 dashboard = DashboardPage(driver)
