@@ -10,6 +10,17 @@
       <sourceFolder url="file://$MODULE_DIR$/fires_project_members" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fires_project_settings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fires_registration" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utils" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_registration" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_project_settings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_project_members" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_profile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_launches" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_filters" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_debug" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_dashboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pages" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/logger_test" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
