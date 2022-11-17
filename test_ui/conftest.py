@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 def pytest_runtest_setup(item):
     logging_plugin = item.config.pluginmanager.get_plugin("logging-plugin")
     timestamp = datetime.strftime(datetime.now(), '[%Y-%m-%d]__%H-%M-%S')
-    logging_plugin.set_log_path(os.path.join('logger_test', f'{item.name}__{timestamp}.log'))
+    logging_plugin.set_log_path(os.path.join('logger', f'{item.name}__{timestamp}.log'))
 
 
 @pytest.fixture(autouse=True, scope="module")
