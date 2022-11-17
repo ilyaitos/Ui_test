@@ -6,10 +6,14 @@ from profile_page import ProfilePage
 from launches_page import LaunchesPage
 from registration_page import RegistrationPage
 import configparser
+from pathlib import Path
+import os
 
-
+path = Path(__file__)
+ROOT_DIR = path.parent.absolute()
+config_path = os.path.join(ROOT_DIR, "setting.ini")
 config = configparser.ConfigParser()
-config.read('settings.ini', encoding='utf-8-sig')
+config.read(config_path, encoding='utf-8-sig')
 registration = RegistrationPage(driver)
 home = HomePage(driver)
 dashboard = DashboardPage(driver)
@@ -33,7 +37,6 @@ def add_new_dashboard(login):
     dashboard_name = 'Cat'
     dashboards = Dashboard(dashboard_name)
     dashboard.create_dashboard(dashboards)
-    driver.refresh()
     logger.info('New dashboard created by')
 
 

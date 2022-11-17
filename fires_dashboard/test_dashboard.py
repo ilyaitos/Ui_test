@@ -12,8 +12,7 @@ def test_add_new_dashboard(login):
     dashboards = Dashboard(dashboard_name)
     dashboard.create_dashboard(dashboards)
     driver.refresh()
-    new_dashboards = Dashboard('ilya')
-    assert new_dashboards == dashboards
+    assert dashboard.find_dashboard_name(dashboard_name) == dashboard_name
 
 
 def test_add_new_widget(login):
@@ -23,6 +22,13 @@ def test_add_new_widget(login):
     name_widget = 'Dog1'
     widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
     dashboard.create_widget(widget)
-    new_widget = Widget('ilya', type_widget, name_filter, 'Dog1')
-    assert new_widget == widget
+    search_dashboard_name = dashboard.search_dashboard_name()
+    search_name_widget = dashboard.search_name_widget()
+    dashboard.click()
+    search_name_filter = dashboard.search_name_filter()
+    search_type_widget = dashboard.search_type_widget()
+    pytest.assume(dashboard_name == search_dashboard_name)
+    pytest.assume('Launch statistics chart' == search_type_widget)
+    pytest.assume(name_widget == search_name_widget)
+    pytest.assume('filter_1' == search_name_filter)
 

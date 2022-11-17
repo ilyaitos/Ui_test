@@ -1,6 +1,6 @@
-from selenium.webdriver import Keys
+from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
-from conftest import logger
+from conftest import logger, driver
 from home_page import HomePage
 from home_page import LocatorsHomePage
 from enum import Enum
@@ -98,12 +98,12 @@ class Widget:
         self.name_filter = name_filter
         self.name_widget = name_widget
 
-    def __eq__(self, other):
-        if isinstance(other, Widget):
-            result = {self.dashboard_name == other.dashboard_name,
-                      self.type_widget == other.type_widget, self.name_filter == other.name_filter, self.name_widget == other.name_widget}
-            return all(result)
-        return False
+    # def __eq__(self, other):
+    #     if isinstance(other, Widget):
+    #         result = {self.dashboard_name == other.dashboard_name,
+    #                   self.type_widget == other.type_widget, self.name_filter == other.name_filter, self.name_widget == other.name_widget}
+    #         return all(result)
+    #     return False
 
 
 class Dashboard:
@@ -111,10 +111,10 @@ class Dashboard:
     def __init__(self, dashboard_name):
         self.dashboard_name = dashboard_name
 
-    def __eq__(self, other):
-        if isinstance(other, Dashboard):
-            return self.dashboard_name == other.dashboard_name
-        return False
+    # def __eq__(self, other):
+    #     if isinstance(other, Dashboard):
+    #         return self.dashboard_name == other.dashboard_name
+    #     return False
 
 
 class DashboardPage(HomePage):
@@ -166,6 +166,7 @@ class DashboardPage(HomePage):
 
     def delete_dashboard(self, list_dashboard_name):
         lists = []
+        driver.refresh()
         click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
         click_button_dashboard.click()
         list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
@@ -286,3 +287,58 @@ class DashboardPage(HomePage):
         click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
         click_button_save_add.click()
         logger.info('Add button is clicked')
+
+
+    ###################################################################################################################
+    def click(self):
+        logger.info('Click add button')
+        w = self.driver.find_element(By.XPATH, '//*[@class="widget__widget-header--eR4Gu draggable-field widget__modifiable--3g79h"]')
+        click_button_save_add = self.driver.find_element(By.XPATH, '//*[@d="M3 14.083V17h2.917l8.607-8.607-2.917-2.917L3 14.083zm13.772-7.938a.78.78 0 0 0 0-1.101l-1.816-1.816a.78.78 0 0 0-1.1 0L12.431 4.65l2.917 2.917 1.423-1.423z"]')
+        hover = ActionChains(driver).move_to_element(w)
+        hover.perform()
+        click_button_save_add.click()
+        # driver.execute_script("arguments[0].click();", click_button_save_add)
+        logger.info('Add button is clicked')
+
+
+    def search_type_widget(self):
+        logger.info('Search type widget')
+        search_type_widget = self.driver.find_element(By.XPATH, '//*[@class="modalLayout__modal-window--2CP8n editWidgetModal__edit-widget-modal--3DPWI modal-window-animation-enter-done"] // *[text()= "Launch statistics chart"]')
+        name = search_type_widget.get_attribute("textContent")
+        logger.info('Type widget found')
+        return name
+
+    def search_name_filter(self):
+        logger.info('Search name filter')
+        search_name_filter = self.driver.find_element(By.XPATH,
+                                                      '//*[@class="filterName__name--3eMTq filterName__bold--11M-1"]')
+        name = search_name_filter.get_attribute("textContent")
+        logger.info('Name filter found')
+        return name
+
+    def search_name_widget(self):
+        logger.info('Search name widget')
+        search_name_widget = self.driver.find_element(By.XPATH,
+                                                      '//*[@class="widgetHeader__widget-name-block--7fZoV"]')
+        name = search_name_widget.get_attribute("textContent")
+        logger.info('Name widget found')
+        return name
+
+    def search_dashboard_name(self):
+        logger.info('Search name dashboard')
+        search_dashboard_name = self.driver.find_element(By.XPATH,
+                                                      '//*[@title="ilya"]')
+        name = search_dashboard_name.get_attribute("textContent")
+        logger.info('Name dashboard found')
+        return name
+
+    def find_dashboard_name(self, name):
+        lists = []
+        click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
+        click_button_dashboard.click()
+        list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
+        for x in list_name:
+            lists.append(x.get_attribute("textContent"))
+        for w in lists:
+            if w == name:
+                return w
