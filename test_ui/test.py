@@ -32,7 +32,7 @@ def login():
     registration.click_button_login()
 
 
-@pytest.fixture(autouse=True, scope="module")
+@pytest.fixture(scope="module")
 def add_new_dashboard(login):
     logger.info('Create new dashboard')
     dashboard_name = 'Cat'
@@ -41,7 +41,7 @@ def add_new_dashboard(login):
     logger.info('New dashboard created by')
 
 
-@pytest.fixture(autouse=True, scope="module")
+@pytest.fixture(scope="module")
 def add_new_widget(login):
     logger.info('Create new widget')
     dashboard_name = 'Cat'
@@ -53,7 +53,7 @@ def add_new_widget(login):
     logger.info('New widget created by')
 
 
-@pytest.fixture(autouse=True, scope="module")
+@pytest.fixture(scope="module")
 def delete_dashboard(login):
     yield
-    dashboard.delete_dashboard(['ilya', 'Cat'])
+    dashboard.delete_dashboard(['ilya'])

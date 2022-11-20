@@ -1,14 +1,28 @@
 from test import *
 from dashboard_page import Dashboard, Widget
 from waiter import wait
+from test_n import *
 
 
-def test_dashboard(login, start_page):
+def setup_module(module):
+    driver.implicitly_wait(7)
+    driver.maximize_window()
+    driver.get(config.get('Settings', 'link'))
+    registration.input_login(config.get('Settings', 'login'))
+    registration.input_password(config.get('Settings', 'password'))
+    registration.click_button_login()
+
+
+def setup_method(test_method):
+    driver.get('http://localhost:8080/ui/#default_personal/dashboard')
+
+
+def test_dashboard():
     home.click_button_dashboard()
     assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
 
-def test_add_new_dashboard(login, start_page):
+def test_add_new_dashboard():
     dashboard_name = 'ilya'
     dashboards = Dashboard(dashboard_name)
     dashboard.create_dashboard(dashboards)
@@ -16,7 +30,7 @@ def test_add_new_dashboard(login, start_page):
     assert dashboard.find_dashboard_name(dashboard_name) == dashboard_name
 
 
-def test_add_new_widget(login, start_page, delete_dashboard):
+def test_add_new_widget():
     dashboard_name = 'ilya'
     type_widget = NameWidget.LAUNCH_STATISTICS_CHART.value
     name_filter = NameFilter.FILTER_1.value
@@ -34,3 +48,6 @@ def test_add_new_widget(login, start_page, delete_dashboard):
     #pytest.assume(name_widget == search_name_widget)
     pytest.assume('filter_1' == search_name_filter)
 
+def teardown_module(module):
+    dashboard.delete_dashboard(['ilya', 'Cat'])
+    driver.quit()
