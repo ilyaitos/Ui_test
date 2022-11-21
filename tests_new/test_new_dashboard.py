@@ -1,20 +1,5 @@
-from test import *
-from dashboard_page import Dashboard, Widget
 from waiter import wait
 from test_n import *
-
-
-def setup_module(module):
-    driver.implicitly_wait(7)
-    driver.maximize_window()
-    driver.get(config.get('Settings', 'link'))
-    registration.input_login(config.get('Settings', 'login'))
-    registration.input_password(config.get('Settings', 'password'))
-    registration.click_button_login()
-
-
-def setup_method(test_method):
-    driver.get('http://localhost:8080/ui/#default_personal/dashboard')
 
 
 def test_dashboard():
@@ -48,6 +33,3 @@ def test_add_new_widget():
     #pytest.assume(name_widget == search_name_widget)
     pytest.assume('filter_1' == search_name_filter)
 
-def teardown_module(module):
-    dashboard.delete_dashboard(['ilya', 'Cat'])
-    driver.quit()
