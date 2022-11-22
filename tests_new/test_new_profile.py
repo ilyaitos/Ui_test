@@ -1,8 +1,6 @@
 from test_n import *
 import random
 
-TestClass.setup_class()
-
 
 def test_profile():
     city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']

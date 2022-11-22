@@ -2,12 +2,10 @@ from waiter import wait
 from test_n import *
 
 
-TestClass.setup_class()
-
-
-class TestClass1:
+class TestClass1(TestClass):
 
     def test_dashboard(self):
+        print("test_dashboard")
         home.click_button_dashboard()
         assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
@@ -33,9 +31,10 @@ class TestClass1:
         search_type_widget = dashboard.search_type_widget()
         pytest.assume(dashboard_name == search_dashboard_name)
         pytest.assume('Launch statistics chart' == search_type_widget)
-        #pytest.assume(name_widget == search_name_widget)
+        # pytest.assume(name_widget == search_name_widget)
         pytest.assume('filter_1' == search_name_filter)
 
     @classmethod
     def teardown_class(cls):
+        print("dashboard.delete_dashboard")
         dashboard.delete_dashboard(['ilya'])
