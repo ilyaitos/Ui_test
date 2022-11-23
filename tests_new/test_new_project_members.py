@@ -1,6 +1,8 @@
-from test import *
+from test_n import *
 
 
-def test_project_members():
-    home.click_button_project_members()
-    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "members"
+class TestDashboard(TuningTest):
+
+    def test_project_members(self):
+        home.click_button_project_members()
+        assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "members"

@@ -2,7 +2,7 @@ from waiter import wait
 from test_n import *
 
 
-class TestClass1(TestClass):
+class TestDashboard(TuningTest):
 
     def test_dashboard(self):
         print("test_dashboard")

@@ -1,4 +1,4 @@
-from test import *
+from test_n import *
 
 
 def test_login():

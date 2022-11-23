@@ -1,6 +1,8 @@
-from test import *
+from test_n import *
 
 
-def test_filters():
-    home.click_button_filters()
-    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "filters"
+class TestDashboard(TuningTest):
+
+    def test_filters(self):
+        home.click_button_filters()
+        assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "filters"
