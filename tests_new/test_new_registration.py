@@ -8,4 +8,4 @@ def test_login():
     registration.input_password(config.get('Settings', 'password'))
     registration.click_button_login()
     home.click_button_dashboard()
-    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
+    assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"

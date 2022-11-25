@@ -18,7 +18,7 @@ def pytest_runtest_setup(item):
     logging_plugin.set_log_path(os.path.join('C:/Users/User/PycharmProjects/pythonUI1/logger', f'{item.name}__{timestamp}.log'))
 
 
-@pytest.fixture( scope="module")#autouse=True,
+@pytest.fixture(autouse=True, scope="module")
 def exit_web():
     yield
     driver.quit()

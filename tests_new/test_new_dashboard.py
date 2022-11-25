@@ -1,40 +1,40 @@
-from waiter import wait
 from test_n import *
 
 
-class TestDashboard(TuningTest):
+class TestDashboard(TuningTest1):
+
+    @classmethod
+    def setup_class(cls):
+        super().setup_class()
 
     def test_dashboard(self):
-        print("test_dashboard")
         home.click_button_dashboard()
-        assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
+        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
 
     def test_add_new_dashboard(self):
         dashboard_name = 'ilya'
         dashboards = Dashboard(dashboard_name)
         dashboard.create_dashboard(dashboards)
-        driver.refresh()
-        assert dashboard.find_dashboard_name(dashboard_name) == dashboard_name
+        assert dashboard.get_dashboard_name(dashboard_name) == dashboard_name
 
     def test_add_new_widget(self):
-        dashboard_name = 'ilya'
-        type_widget = NameWidget.LAUNCH_STATISTICS_CHART.value
-        name_filter = NameFilter.FILTER_1.value
-        name_widget = 'Dog3'
+        dashboard_name = 'Cat'
+        type_widget = TypeWidget.LAUNCH_STATISTICS_CHART.value
+        name_filter = NameFilter.FILTER_SORTED_BY_START_TIME.value
+        name_widget = 'Dog4'
         widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
         dashboard.create_widget(widget)
-        search_dashboard_name = dashboard.search_dashboard_name()
-        wait(3)
-        search_name_widget = dashboard.search_name_widget()
-        dashboard.click()
-        search_name_filter = dashboard.search_name_filter()
-        search_type_widget = dashboard.search_type_widget()
-        pytest.assume(dashboard_name == search_dashboard_name)
-        pytest.assume('Launch statistics chart' == search_type_widget)
-        # pytest.assume(name_widget == search_name_widget)
-        pytest.assume('filter_1' == search_name_filter)
+        received_name_widget = dashboard.get_name_widget()
+        dashboard.click_button_filter_properties()
+        received_name_filter = dashboard.get_name_filter()
+        received_type_widget = dashboard.get_type_widget()
+        pytest.assume('Launch statistics chart' == received_type_widget)
+        pytest.assume(name_widget == received_name_widget)
+        pytest.assume('filter_sorted_by_start_time' == received_name_filter)
 
     @classmethod
     def teardown_class(cls):
-        print("dashboard.delete_dashboard")
-        dashboard.delete_dashboard(['ilya'])
+        dashboard.delete_dashboard(['ilya', 'Cat'])
+        super().teardown_class()
+
+

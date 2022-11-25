@@ -28,3 +28,9 @@ class RegistrationPage(HomePage):
         click_button_login = self.driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_BUTTON_TO_COME_IN)
         click_button_login.click()
         logger.info('Login button is clicked')
+
+    def current_url(self):
+        logger.info('Find current url')
+        current_url = self.driver.current_url
+        logger.info('Current url found')
+        return current_url

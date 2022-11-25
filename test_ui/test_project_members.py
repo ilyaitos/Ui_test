@@ -1,6 +1,6 @@
 from test import *
 
 
-def test_project_members():
+def test_project_members(login, start_page):
     home.click_button_project_members()
-    assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "members"
+    assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "members"

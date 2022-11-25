@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from conftest import logger
+from conftest import logger, driver
 
 
 class LocatorsHomePage:
@@ -18,11 +18,6 @@ class HomePage:
 
     def __init__(self, driver):
         self.driver = driver
-
-    def current_url(self):
-
-        current_url = self.driver.current_url
-        return current_url
 
     def click_button_dashboard(self):
         logger.info('Click dashboard button')
@@ -62,6 +57,7 @@ class HomePage:
 
     def click_button_default_drop(self):
         logger.info('Click default drop button')
+        driver.refresh()
         click_button_default_drop = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DEFAULT_DROP)
         click_button_default_drop.click()
         logger.info('Default drop button is clicked')

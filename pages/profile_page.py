@@ -1,6 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from conftest import logger
+from conftest import logger, driver
 from home_page import HomePage
 
 
@@ -37,4 +37,5 @@ class ProfilePage(HomePage):
         logger.info('Click submit button')
         click_button_submit = self.driver.find_element(By.XPATH, LocatorsProfile.LOCATOR_SUBMIT)
         click_button_submit.click()
+        driver.refresh()
         logger.info('Submit button is clicked')

@@ -5,4 +5,4 @@ class TestDashboard(TuningTest):
 
     def test_filters(self):
         home.click_button_filters()
-        assert home.current_url() == config.get('Settings', 'url_dashboard_page') + "filters"
+        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "filters"

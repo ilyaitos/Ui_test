@@ -1,13 +1,17 @@
 import pytest
 from conftest import driver, logger
 from home_page import HomePage
-from dashboard_page import DashboardPage, NameWidget, NameFilter, Dashboard, Widget
+from dashboard_page import DashboardPage, TypeWidget, NameFilter, Dashboard, Widget
 from profile_page import ProfilePage
 from launches_page import LaunchesPage
 from registration_page import RegistrationPage
 import configparser
 from pathlib import Path
 import os
+
+
+
+
 
 path = Path(__file__)
 ROOT_DIR = path.parent.absolute()
@@ -42,18 +46,6 @@ def add_new_dashboard(login):
 
 
 @pytest.fixture(scope="module")
-def add_new_widget(login):
-    logger.info('Create new widget')
-    dashboard_name = 'Cat'
-    type_widget = NameWidget.LAUNCH_STATISTICS_CHART.value
-    name_filter = NameFilter.FILTER_1.value
-    name_widget = 'Dog2'
-    widget = Widget(dashboard_name, type_widget, name_filter, name_widget)
-    dashboard.create_widget(widget)
-    logger.info('New widget created by')
-
-
-@pytest.fixture(scope="module")
 def delete_dashboard(login):
     yield
-    dashboard.delete_dashboard(['ilya'])
+    dashboard.delete_dashboard(['ilya', 'Cat'])

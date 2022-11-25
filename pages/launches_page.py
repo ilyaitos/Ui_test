@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from home_page import HomePage
-from conftest import logger
+from conftest import logger, driver
 
 
 class LocatorsLaunches:
@@ -14,6 +14,7 @@ class LaunchesPage(HomePage):
 
     def click_launches_example(self):
         logger.info('Click launches example')
+        driver.refresh()
         launches_example = self.driver.find_element(By.XPATH, LocatorsLaunches.LOCATOR_TEST_EXAMPLE)
         launches_example.click()
         logger.info('Launches example is clicked')
