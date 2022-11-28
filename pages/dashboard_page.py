@@ -1,5 +1,9 @@
+from telnetlib import EC
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from conftest import logger, driver
 from home_page import HomePage
 from home_page import LocatorsHomePage
@@ -37,13 +41,13 @@ class LocatorsNameWidget:
     LOCATOR_WIDGET_LAUNCH_EXECUTION_AND_ISSUE_STATISTIC = '//div[@class="widget-type-selector"]//div[text() ="Launch execution and issue statistic"]'
     LOCATOR_WIDGET_PROJECT_ACTIVITY_PANEL = '//div[@class="widget-type-selector"]//div[text() ="Project activity panel"]'
     LOCATOR_WIDGET_TEST_CASES_GROWTH_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Test-cases growth trend chart"]'
-    LOCATOR_WIDGET_INVESTIGATED_PERCENTAGE_OF_LAUNCHES = '//div[@class="widget-type-selector"]//div[text() ="Investigated percentage of launches"]'
+    LOCATOR_WIDGET_INVESTIGATED_PERCENTAGE_OF_LAUNCHES = '//div[@class="widget-type-selector"]//div[text() ="Investigated percentage of launches_page"]'
     LOCATOR_WIDGET_LAUNCHES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Launches table"]'
     LOCATOR_WIDGET_UNIQUE_BUGS_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Unique bugs table"]'
     LOCATOR_WIDGET_MOST_FAILED_TEST_CASES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Most failed test-cases table (TOP-20)"]'
     LOCATOR_WIDGET_FAILED_CASES_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Failed cases trend chart"]'
     LOCATOR_WIDGET_NON_PASSED_TEST_CASES_TREND_CHART = '//div[@class="widget-type-selector"]//div[text() ="Non-passed test-cases trend chart"]'
-    LOCATOR_WIDGET_DIFFEREN_LAUNCHES_COMPARISON_CHART = '//div[@class="widget-type-selector"]//div[text() ="Different launches comparison chart"]'
+    LOCATOR_WIDGET_DIFFEREN_LAUNCHES_COMPARISON_CHART = '//div[@class="widget-type-selector"]//div[text() ="Different launches_page comparison chart"]'
     LOCATOR_WIDGET_PASSING_RATE_PER_LAUNCH = '//div[@class="widget-type-selector"]//div[text() ="Passing rate per launch"]'
     LOCATOR_WIDGET_PASSING_RATE_SUMMARY = '//div[@class="widget-type-selector"]//div[text() ="Passing rate summary"]'
     LOCATOR_WIDGET_FLAKY_TEST_CASES_TABLE = '//div[@class="widget-type-selector"]//div[text() ="Flaky test cases table (TOP-20)"]'
@@ -61,7 +65,7 @@ class LocatorsNameFilter:
 
 
 class TypeWidget(Enum):
-    LAUNCH_STATISTICS_CHART = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCH_STATISTICS_CHART
+    Launch_statistics_chart = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCH_STATISTICS_CHART
     OVERALL_STSTISTICS = LocatorsNameWidget.LOCATOR_WIDGET_OVERALL_STSTISTICS
     LAUNCHES_DURATION_CHART = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCHES_DURATION_CHART
     LAUNCH_EXECUTION_AND_ISSUE_STATISTIC = LocatorsNameWidget.LOCATOR_WIDGET_LAUNCH_EXECUTION_AND_ISSUE_STATISTIC
@@ -85,9 +89,9 @@ class TypeWidget(Enum):
 
 
 class NameFilter(Enum):
-    FILTER_SORTED_BY_START_TIME = LocatorsNameFilter.LOCATOR_FILTER_SORTED_BY_START_TIME
-    LOCATOR_FILTER_FILTER_SORTED_BY_LAUNCH_NAME = LocatorsNameFilter.LOCATOR_FILTER_FILTER_SORTED_BY_LAUNCH_NAME
-    LOCATOR_FILTER_FILTER_SORTED_BY_TOTAL = LocatorsNameFilter.LOCATOR_FILTER_FILTER_SORTED_BY_TOTAL
+    filter_sorted_by_start_time = LocatorsNameFilter.LOCATOR_FILTER_SORTED_BY_START_TIME
+    filter_filter_sorted_by_launch_name = LocatorsNameFilter.LOCATOR_FILTER_FILTER_SORTED_BY_LAUNCH_NAME
+    filter_filter_sorted_by_total = LocatorsNameFilter.LOCATOR_FILTER_FILTER_SORTED_BY_TOTAL
 
 
 class Widget:
@@ -151,7 +155,7 @@ class DashboardPage(HomePage):
             input_widget_name.send_keys(widget.name_widget)
             click_button_save_add = self.driver.find_element(By.XPATH, LocatorsNewWidget.LOCATOR_SAVE_ADD)
             click_button_save_add.click()
-        return
+        # return
 
     def delete_dashboard(self, list_dashboard_name):
         lists = []
@@ -164,6 +168,8 @@ class DashboardPage(HomePage):
         for x in lists:
             for e in list_dashboard_name:
                 if x == e:
+            # for dashboards_name in lists:
+            #     if dashboards_name in lists:
                     click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
                     click_button_dashboard.click()
                     click_button_delete_dashboard = self.driver.find_element(By.XPATH, '//*[@class="gridRow__grid-row-wrapper--1dI9K"]//a[text() ="{}"]/..//*[@class="icon__icon--2m6Od icon__icon-delete--1jIHF"]'.format(e))
@@ -197,6 +203,15 @@ class DashboardPage(HomePage):
         name = get_widget.get_attribute("textContent")
         logger.info('Widget found')
         return name
+
+    def name_on_the_page_dashboard(self):
+        return 'All Dashboards'
+
+    def get_name_on_the_page_dashboard(self):
+        logger.info('Click dashboard button')
+        click_button_add_new_dashboard = self.driver.find_element(By.XPATH, '//*[@title="All Dashboards"]')
+        logger.info('Dashboard button is clicked')
+        return click_button_add_new_dashboard.get_attribute("textContent")
 
     def click_button_add_new_dashboard(self):
         logger.info('Click dashboard button')
@@ -304,21 +319,10 @@ class DashboardPage(HomePage):
 
     def get_name_widget(self):
         logger.info('Search name widget')
-
-        wait(1)
-        search_name_widget = self.driver.find_element(By.XPATH,
-                                                      '//*[@class="widgetHeader__widget-name-block--7fZoV"]')
+        search_name_widget = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@class="widgetHeader__widget-name-block--7fZoV"]')))
         name = search_name_widget.get_attribute("textContent")
         logger.info('Name widget found')
         return name
-
-    # def get_dashboard_name(self):
-    #     logger.info('Search name dashboard')
-    #     search_dashboard_name = self.driver.find_element(By.XPATH, '//*[@title="Cat"]')
-    #     name = search_dashboard_name.get_attribute("textContent")
-    #
-    #     logger.info('Name dashboard found')
-    #     return name
 
     def get_dashboard_name(self, name):
         lists = []
@@ -330,4 +334,3 @@ class DashboardPage(HomePage):
         for w in lists:
             if w == name:
                 return w
-

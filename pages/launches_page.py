@@ -13,7 +13,7 @@ class LocatorsLaunches:
 class LaunchesPage(HomePage):
 
     def click_launches_example(self):
-        logger.info('Click launches example')
+        logger.info('Click launches_page example')
         driver.refresh()
         launches_example = self.driver.find_element(By.XPATH, LocatorsLaunches.LOCATOR_TEST_EXAMPLE)
         launches_example.click()
@@ -39,3 +39,12 @@ class LaunchesPage(HomePage):
         name = dashboard_status_skipped.get_attribute("textContent")
         logger.info('Dashboard status skipped found')
         return name
+
+    def get_name_on_the_page_launches(self):
+        logger.info('Find dashboard status skipped')
+        dashboard_status_skipped = self.driver.find_element(By.XPATH, '//*[@class="allLatestDropdown__value--MrUCz allLatestDropdown__active--6GZcA"]')
+        logger.info('Dashboard status skipped found')
+        return dashboard_status_skipped.get_attribute("textContent")
+
+    def name_on_the_page_launches(self):
+        return 'All Dashboards'

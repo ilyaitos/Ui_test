@@ -1,28 +1,29 @@
 from test import *
 
 
-class TuningTest:
+def setup_module(module):
+    driver.implicitly_wait(7)
+    driver.maximize_window()
+    driver.get(config.get('Settings', 'link'))
+
+
+def teardown_module(module):
+    driver.quit()
+
+
+class TuningTestRegistration:
     @classmethod
     def setup_class(cls):
-        driver.implicitly_wait(7)
-        driver.maximize_window()
-        driver.get(config.get('Settings', 'link'))
-        registration.input_login(config.get('Settings', 'login'))
-        registration.input_password(config.get('Settings', 'password'))
-        registration.click_button_login()
-
-    @classmethod
-    def teardown_class(cls):
-        driver.quit()
+        registration_page.input_login(config.get('Settings', 'login'))
+        registration_page.input_password(config.get('Settings', 'password'))
+        registration_page.click_button_login()
 
     def setup_method(self):
         driver.get('http://localhost:8080/ui/#default_personal/dashboard')
 
 
-class TuningTest1(TuningTest):
+class TuningTestDelete:
     @classmethod
-    def setup_class(cls):
-        super().setup_class()
-        dashboard_name = 'Cat'
-        dashboards = Dashboard(dashboard_name)
-        dashboard.create_dashboard(dashboards)
+    def teardown_class(cls):
+        dashboard_page.delete_dashboard(['ilya', 'Cat'])
+

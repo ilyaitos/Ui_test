@@ -1,29 +1,32 @@
 from test_n import *
 
 
-class TestDashboard(TuningTest):
+class TestDashboard(TuningTestRegistration):
 
     def test_launches(self):
-        home.click_button_launches()
-        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "launches/all"
+        launches_page.click_button_launches()
+        assert launches_page.get_name_on_the_page_launches() == launches_page.name_on_the_page_launches()
 
     def test_dashboard_passed(self):
-        home.click_button_dashboard()
-        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
+        dashboard_page.click_button_debug()
+        dashboard_page.click_button_dashboard()
+        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
 
     @pytest.mark.xfail(strict=True)
     def test_dashboard_failed(self):
-        home.click_button_dashboard()
-        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
+        dashboard_page.click_button_debug()
+        dashboard_page.click_button_dashboard()
+        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
 
     @pytest.mark.skip
     def test_dashboard_skipped(self):
-        home.click_button_dashboard()
-        assert registration.current_url() == config.get('Settings', 'url_dashboard_page') + "dashboard"
+        dashboard_page.click_button_debug()
+        dashboard_page.click_button_dashboard()
+        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
 
     def test_status(self):
-        home.click_button_launches()
-        launches.click_launches_example()
-        pytest.assume('Passed' == launches.dashboard_status_passed())
-        pytest.assume('Failed' == launches.dashboard_status_failed())
-        pytest.assume('Skipped' == launches.dashboard_status_skipped())
+        launches_page.click_button_launches()
+        launches_page.click_launches_example()
+        pytest.assume('Passed' == launches_page.dashboard_status_passed())
+        pytest.assume('Failed' == launches_page.dashboard_status_failed())
+        pytest.assume('Skipped' == launches_page.dashboard_status_skipped())

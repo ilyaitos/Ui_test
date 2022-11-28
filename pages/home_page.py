@@ -4,13 +4,13 @@ from conftest import logger, driver
 
 class LocatorsHomePage:
     LOCATOR_BUTTON_DASHBOARD = '(//a[@href="#default_personal/dashboard"])[1]'
-    LOCATOR_BUTTON_LAUNCHES = '//a[@href="#default_personal/launches"]'
+    LOCATOR_BUTTON_LAUNCHES = '//a[@href="#default_personal/launches_page"]'
     LOCATOR_BUTTON_FILTERS = '//a[@href="#default_personal/filters"]'
     LOCATOR_BUTTON_DEBUG = '//a[@href="#default_personal/userdebug/all"]'
     LOCATOR_BUTTON_PROJECT_MEMBERS = '//a[@href="#default_personal/members"]'
     LOCATOR_BUTTON_PROJECT_SETTINGS = '//a[@href="#default_personal/settings"]'
     LOCATOR_BUTTON_DEFAULT_DROP = '(//*[@class="userBlock__avatar-wrapper--_Jkks"])[1]'
-    LOCATOR_BUTTON_PROFILE = '(//a[contains(@href,"#user-profile")])[2]'
+    LOCATOR_BUTTON_PROFILE = '(//a[contains(@href,"#user-profile_page")])[2]'
     LOCATOR_BUTTON_LOGOUT = '//div[@class="userBlock__menu-item--3VBsZ"]'
 
 
@@ -26,7 +26,7 @@ class HomePage:
         logger.info('Dashboard button is clicked')
 
     def click_button_launches(self):
-        logger.info('Click launches button')
+        logger.info('Click launches_page button')
         click_button_launches = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_LAUNCHES)
         click_button_launches.click()
         logger.info('Launches button is clicked')
@@ -63,7 +63,7 @@ class HomePage:
         logger.info('Default drop button is clicked')
 
     def click_button_profile(self):
-        logger.info('Click profile button')
+        logger.info('Click profile_page button')
         click_button_profile = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_PROFILE)
         click_button_profile.click()
         logger.info('Profile button is clicked')
@@ -73,3 +73,9 @@ class HomePage:
         click_button_logout = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_LOGOUT)
         click_button_logout.click()
         logger.info('Logout button is clicked')
+
+    def current_url(self):
+        logger.info('Find current url')
+        current_url = self.driver.current_url
+        logger.info('Current url found')
+        return current_url

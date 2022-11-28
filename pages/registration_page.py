@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
-from home_page import HomePage
 from conftest import logger
-
+from dashboard_page import DashboardPage
 
 class LocatorsRegistrationPage:
     LOCATOR_LOGIN_FIELD = "//*[@class='inputOutside__input--1Sg9p'][@type='text']"
@@ -9,7 +8,7 @@ class LocatorsRegistrationPage:
     LOCATOR_BUTTON_TO_COME_IN = '//*[@type="submit"]'
 
 
-class RegistrationPage(HomePage):
+class RegistrationPage(DashboardPage):
 
     def input_login(self, login):
         logger.info('Enter login')
@@ -29,8 +28,4 @@ class RegistrationPage(HomePage):
         click_button_login.click()
         logger.info('Login button is clicked')
 
-    def current_url(self):
-        logger.info('Find current url')
-        current_url = self.driver.current_url
-        logger.info('Current url found')
-        return current_url
+
