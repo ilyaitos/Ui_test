@@ -1,11 +1,11 @@
 from test_n import *
 
 
-class TestDashboard(TuningTestRegistration, TuningTestDelete):
+class TestNewWidget(TuningRegistration, TuningDelete):
 
     @classmethod
     def setup_class(cls):
-        super(TestDashboard, cls).setup_class()
+        super(TestNewWidget, cls).setup_class()
         dashboard_name = 'Cat'
         dashboards = Dashboard(dashboard_name)
         dashboard_page.create_dashboard(dashboards)

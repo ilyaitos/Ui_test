@@ -1,7 +1,7 @@
 from test_n import *
 
 
-class TestDashboard(TuningTestRegistration, TuningTestDelete):
+class TestDashboard(TuningRegistration, TuningDelete):
 
     def test_button_dashboard(self):
         dashboard_page.click_button_debug()

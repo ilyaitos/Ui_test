@@ -2,7 +2,7 @@ from test_n import *
 import random
 
 
-class TestDashboard(TuningTestRegistration):
+class TestProfile(TuningRegistration):
 
     def test_profile(self):
         city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']

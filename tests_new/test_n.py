@@ -11,7 +11,7 @@ def teardown_module(module):
     driver.quit()
 
 
-class TuningTestRegistration:
+class TuningRegistration:
     @classmethod
     def setup_class(cls):
         registration_page.input_login(config.get('Settings', 'login'))
@@ -22,7 +22,7 @@ class TuningTestRegistration:
         driver.get('http://localhost:8080/ui/#default_personal/dashboard')
 
 
-class TuningTestDelete:
+class TuningDelete:
     @classmethod
     def teardown_class(cls):
         dashboard_page.delete_dashboard(['ilya', 'Cat'])

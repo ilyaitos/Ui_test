@@ -1,28 +1,28 @@
 from test_n import *
 
 
-class TestDashboard(TuningTestRegistration):
+class TestLaunches(TuningRegistration):
 
     def test_launches(self):
         launches_page.click_button_launches()
         assert launches_page.get_name_on_the_page_launches() == launches_page.name_on_the_page_launches()
 
     def test_dashboard_passed(self):
-        dashboard_page.click_button_debug()
-        dashboard_page.click_button_dashboard()
-        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
+        launches_page.click_button_debug()
+        launches_page.click_button_dashboard()
+        assert launches_page.get_name_on_the_page_dashboard() == launches_page.name_page_dashboard()
 
     @pytest.mark.xfail(strict=True)
     def test_dashboard_failed(self):
-        dashboard_page.click_button_debug()
-        dashboard_page.click_button_dashboard()
-        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
+        launches_page.click_button_debug()
+        launches_page.click_button_dashboard()
+        assert launches_page.get_name_on_the_page_dashboard() == launches_page.name_page_dashboard()
 
     @pytest.mark.skip
     def test_dashboard_skipped(self):
-        dashboard_page.click_button_debug()
-        dashboard_page.click_button_dashboard()
-        assert dashboard_page.get_name_on_the_page_dashboard() == dashboard_page.name_page_dashboard()
+        launches_page.click_button_debug()
+        launches_page.click_button_dashboard()
+        assert launches_page.get_name_on_the_page_dashboard() == launches_page.name_page_dashboard()
 
     def test_status(self):
         launches_page.click_button_launches()
