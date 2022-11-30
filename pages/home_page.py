@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
-from conftest import logger, driver
+
+from log import logger
 
 
 class LocatorsHomePage:
@@ -57,7 +58,7 @@ class HomePage:
 
     def click_button_default_drop(self):
         logger.info('Click default drop button')
-        driver.refresh()
+        self.driver.refresh()
         click_button_default_drop = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DEFAULT_DROP)
         click_button_default_drop.click()
         logger.info('Default drop button is clicked')

@@ -3,12 +3,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
-from conftest import logger, driver
-from home_page import HomePage
-from home_page import LocatorsHomePage
+from home_page import HomePage, LocatorsHomePage
 from enum import Enum
-from waiter import wait
+from log import logger
+
 
 class LocatorsNewDashboard:
     LOCATOR_BUTTON_ADD_NEW_DASHBOARD = '(//button[@class="ghostButton__ghost-button--1PhF7 ghostButton__color-topaz--2GTla with-icon ghostButton__filled-icon--bHBq5 ghostButton__mobile-minified--1m7Pj"])[1]'
@@ -121,7 +119,7 @@ class DashboardPage(HomePage):
         click_button_add = self.driver.find_element(By.XPATH,
                                                     LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
         click_button_add.click()
-        driver.refresh()
+        self.driver.refresh()
 
     def create_widget(self, widget):
         lists = []
@@ -159,7 +157,7 @@ class DashboardPage(HomePage):
 
     def delete_dashboard(self, list_dashboard_name):
         lists = []
-        driver.refresh()
+        self.driver.refresh()
         click_button_dashboard = self.driver.find_element(By.XPATH, LocatorsHomePage.LOCATOR_BUTTON_DASHBOARD)
         click_button_dashboard.click()
         list_name = self.driver.find_elements(By.XPATH, LocatorsNewDashboard.www2)
@@ -228,7 +226,7 @@ class DashboardPage(HomePage):
         logger.info('Name accepted')
 
     def click_button_add(self):
-        logger.info('Click add button')
+        logger.info('Click button')
         click_button_add = self.driver.find_element(By.XPATH, LocatorsNewDashboard.LOCATOR_BUTTON_CONFIRM_ADD_NEW_DASHBOARD)
         click_button_add.click()
         logger.info('Add button is clicked')
@@ -296,7 +294,7 @@ class DashboardPage(HomePage):
         logger.info('Click add button')
         w = self.driver.find_element(By.XPATH, '//*[@class="widget__widget-header--eR4Gu draggable-field widget__modifiable--3g79h"]')
         click_button_save_add = self.driver.find_element(By.XPATH, '//*[@d="M3 14.083V17h2.917l8.607-8.607-2.917-2.917L3 14.083zm13.772-7.938a.78.78 0 0 0 0-1.101l-1.816-1.816a.78.78 0 0 0-1.1 0L12.431 4.65l2.917 2.917 1.423-1.423z"]')
-        hover = ActionChains(driver).move_to_element(w)
+        hover = ActionChains(self.driver).move_to_element(w)
         hover.perform()
         click_button_save_add.click()
         # driver.execute_script("arguments[0].click();", click_button_save_add)
@@ -319,7 +317,7 @@ class DashboardPage(HomePage):
 
     def get_name_widget(self):
         logger.info('Search name widget')
-        search_name_widget = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@class="widgetHeader__widget-name-block--7fZoV"]')))
+        search_name_widget = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@class="widgetHeader__widget-name-block--7fZoV"]')))
         name = search_name_widget.get_attribute("textContent")
         logger.info('Name widget found')
         return name

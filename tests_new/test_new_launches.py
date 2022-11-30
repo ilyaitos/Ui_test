@@ -1,7 +1,8 @@
-from test_n import *
+import pytest
+from test_new import TuningRegistration, TuningQuit, launches_page
 
 
-class TestLaunches(TuningRegistration):
+class TestLaunches(TuningRegistration, TuningQuit):
 
     def test_launches(self):
         launches_page.click_button_launches()

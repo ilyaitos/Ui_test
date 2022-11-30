@@ -1,8 +1,8 @@
-from test_n import *
+from test_new import TuningRegistration, TuningQuit, profile_page, config
 import random
 
 
-class TestProfile(TuningRegistration):
+class TestProfile(TuningRegistration, TuningQuit):
 
     def test_profile(self):
         city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']

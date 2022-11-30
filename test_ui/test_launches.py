@@ -1,4 +1,5 @@
-from test import *
+import pytest
+from test import launches_page, dashboard_page, login, start_page, add_new_dashboard, delete_dashboard, exit_web
 
 
 def test_launches(login, start_page):

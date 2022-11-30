@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-from conftest import logger
 from dashboard_page import DashboardPage
+from log import logger
+
 
 class LocatorsRegistrationPage:
     LOCATOR_LOGIN_FIELD = "//*[@class='inputOutside__input--1Sg9p'][@type='text']"
@@ -27,5 +28,3 @@ class RegistrationPage(DashboardPage):
         click_button_login = self.driver.find_element(By.XPATH, LocatorsRegistrationPage.LOCATOR_BUTTON_TO_COME_IN)
         click_button_login.click()
         logger.info('Login button is clicked')
-
-

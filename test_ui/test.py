@@ -1,14 +1,18 @@
 import pytest
-from conftest import driver, logger
 from home_page import HomePage
-from dashboard_page import DashboardPage, TypeWidget, NameFilter, Dashboard, Widget
+from dashboard_page import DashboardPage, Dashboard, Widget, TypeWidget, NameFilter
 from profile_page import ProfilePage
 from launches_page import LaunchesPage
 from registration_page import RegistrationPage
 import configparser
 from pathlib import Path
 import os
+from log import logger
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 path = Path(__file__)
 ROOT_DIR = path.parent.absolute()
@@ -46,3 +50,14 @@ def add_new_dashboard(login):
 def delete_dashboard(login):
     yield
     dashboard_page.delete_dashboard(['ilya', 'Cat'])
+###############################################################################
+
+@pytest.fixture(scope="module")
+def exit_web():
+    yield
+    driver.quit()
+
+
+@pytest.fixture()
+def start_page():
+    driver.get('http://localhost:8080/ui/#default_personal/dashboard')

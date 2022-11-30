@@ -1,8 +1,8 @@
-from test import *
+from test import profile_page, config, login, start_page, exit_web
 import random
 
 
-def test_profile(login, start_page):
+def test_profile(login, start_page, exit_web):
     city_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia']
     name = random.choice(city_list)
     profile_page.click_button_dashboard()
@@ -14,7 +14,7 @@ def test_profile(login, start_page):
     assert profile_page.user_name() == name
 
 
-def test_profile_logout(login, start_page):
+def test_profile_logout(login, start_page, exit_web):
     profile_page.click_button_dashboard()
     profile_page.click_button_default_drop()
     profile_page.click_button_logout()
