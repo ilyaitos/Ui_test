@@ -50,7 +50,7 @@ def add_new_dashboard(login):
 def delete_dashboard(login):
     yield
     dashboard_page.delete_dashboard(['ilya', 'Cat'])
-###############################################################################
+
 
 @pytest.fixture(scope="module")
 def exit_web():
