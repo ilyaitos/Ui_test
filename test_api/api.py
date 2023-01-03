@@ -5,10 +5,11 @@ import pytest
 import logging
 import os
 from datetime import datetime
+from enum import Enum
 
 path = Path(__file__)
-ROOT_DIR = path.parent.absolute()
-config_path = os.path.join(ROOT_DIR, "C:/Users/User/PycharmProjects/pythonUI1/utils/setting.ini")
+os.chdir("C:/Users/User/PycharmProjects/pythonUI1/utils")
+config_path = os.path.join("setting.ini")
 config = configparser.ConfigParser()
 config.read(config_path, encoding='utf-8-sig')
 
@@ -19,31 +20,54 @@ logger = logging.getLogger(__name__)
 def pytest_runtest_setup(item):
     logging_plugin = item.config.pluginmanager.get_plugin("logging-plugin")
     timestamp = datetime.strftime(datetime.now(), '[%Y-%m-%d]__%H-%M-%S')
-    logging_plugin.set_log_path(os.path.join('C:/Users/User/PycharmProjects/pythonUI1/logger', f'{item.name}__{timestamp}.log'))
+    os.chdir("C:/Users/User/PycharmProjects/pythonUI1/")
+    logging_plugin.set_log_path(os.path.join('logger', f'{item.name}__{timestamp}.log'))
 
 
-url = f"{config.get('Settings', 'uri_api')}{config.get('Settings', 'projectName')}"
+POST_REGISTER_DASHBOARD = 'dashboard'
+POST_REGISTER_WIDGET = 'widget'
 
 
-class Register:
+class TypeWidgetApi(Enum):
+    Launch_statistics_chart = 'statisticTrend'
+    OVERALL_STSTISTICS = 'overallStatistics'
 
-    def __init__(self, url):
-        self.url = url
 
-    POST_REGISTER_DASHBOARD = 'dashboard'
-    POST_REGISTER_WIDGET = 'widget'
+class NameFilterApi(Enum):
+    filter_sorted_by_start_time = 245
+    filter_sorted_by_launch_name = 244
+    filter_filter_sorted_by_total = 246
 
-    def createDashboard_for_specified_project(self, description, name, share):
 
-        body = {"description": description,
-                "name": name,
-                "share": share}
-        status_code_api = requests.post(f'{self.url}{self.POST_REGISTER_DASHBOARD}', json=body, headers={'Authorization': config.get('Settings', 'access_token')})
-        logger.info(status_code_api.json())
-        logger.info('List dashboard name found')
-        return status_code_api
+class ApiDashboard:
+    def __init__(self, name):
+        self.name = name
 
-    def createNew_widget(self, name):
+
+class ApiWidget:
+    def __init__(self, name, widgetType, filterIds):
+        self.name = name
+        self.widgetType = widgetType
+        self.filterIds = filterIds
+        self.share = "false"
+
+
+class Api:
+    def __init__(self):
+        self.url = f"{config.get('Settings', 'uri_api')}"
+        self.project_name = f"{config.get('Settings', 'projectName')}"
+        self.access_token = config.get('Settings', 'access_token')
+
+    def create_api_dashboard(self, ApiDashboard):
+        body = {"description": '',
+                "name": ApiDashboard.name,
+                "share": 'False'}
+        response_api = requests.post(f'{self.url}{self.project_name}{POST_REGISTER_DASHBOARD}', json=body,
+                                     headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api
+
+    def create_api_widget(self, ApiWidget):
         body = {
             "contentParameters": {
                 "contentFields": [
@@ -65,14 +89,15 @@ class Register:
                 }
             },
             "description": "",
-            "filterIds": [244],
-            "name": name,
+            "filterIds": [ApiWidget.filterIds],
+            "name": ApiWidget.name,
             "share": "false",
-            "widgetType": "statisticTrend"
+            "widgetType": ApiWidget.widgetType
         }
-        status_code_api = requests.post(f'{self.url}{self.POST_REGISTER_WIDGET}', json=body, headers={'Authorization': config.get('Settings', 'access_token')})
-        logger.info(status_code_api.json())
-        return status_code_api
+        response_api = requests.post(f'{self.url}{self.project_name}{POST_REGISTER_WIDGET}', json=body,
+                                     headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api
 
     def add_widget_to_specified_dashboard(self, id_dashboard, id_widget):
         body = {"addWidget": {
@@ -94,9 +119,28 @@ class Register:
             "widgetType": "statisticTrend"
         }
         }
-        status_code_api = requests.put(f'{self.url}{self.POST_REGISTER_DASHBOARD}/{id_dashboard}/add', json=body, headers={'Authorization': config.get('Settings', 'access_token')})
-        logger.info(status_code_api.json())
-        return status_code_api
+        response_api = requests.put(f'{self.url}{self.project_name}{POST_REGISTER_DASHBOARD}/{id_dashboard}/add',
+                                    json=body, headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api
 
+    def delete_api_dashboard(self, id_dashboard):
+        requests.delete(f'{self.url}{self.project_name}{POST_REGISTER_DASHBOARD}/{id_dashboard}',
+                        headers={'Authorization': self.access_token})
 
-response = Register(url)
+    def add_api_test_run(self):
+        body = {"createDashboard": 'true'}
+        response_api = requests.post(f'{self.url}demo/{self.project_name}', json=body,
+                                     headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api
+
+    def get_widget_by_id(self, id_widget):
+        response_api = requests.get(f'{self.url}{self.project_name}{POST_REGISTER_WIDGET}/{id_widget}', headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api
+
+    def get_dashboard_by_id(self, id_dashboard):
+        response_api = requests.get(f'{self.url}{self.project_name}{POST_REGISTER_DASHBOARD}/{id_dashboard}', headers={'Authorization': self.access_token})
+        logger.info(response_api.json())
+        return response_api

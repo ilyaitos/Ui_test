@@ -58,7 +58,7 @@ class LocatorsNameWidget:
 
 class LocatorsNameFilter:
     LOCATOR_FILTER_SORTED_BY_START_TIME = "// *[text() = 'filter_sorted_by_start_time']"
-    LOCATOR_FILTER_FILTER_SORTED_BY_LAUNCH_NAME = "// *[text() = 'filter_filter_sorted_by_launch_name']"
+    LOCATOR_FILTER_FILTER_SORTED_BY_LAUNCH_NAME = "// *[text() = 'filter_sorted_by_launch_name']"
     LOCATOR_FILTER_FILTER_SORTED_BY_TOTAL = "// *[text() = 'filter_filter_sorted_by_total']"
 
 
