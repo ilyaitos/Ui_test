@@ -144,3 +144,4 @@ class Api:
         response_api = requests.get(f'{self.url}{self.project_name}{POST_REGISTER_DASHBOARD}/{id_dashboard}', headers={'Authorization': self.access_token})
         logger.info(response_api.json())
         return response_api
+#wwwwwww
